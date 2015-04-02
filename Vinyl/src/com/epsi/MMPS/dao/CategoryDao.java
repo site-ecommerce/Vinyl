@@ -24,13 +24,13 @@ public class CategoryDao implements Serializable{
 	}
 	public void getAllCategories(){
 		categoryList = new LinkedList<Category>();
-		Category c = new Category ("1","Marins","Les animaux marins",
+		Category c = new Category ("1","Classique","Les meilleurs titres classiques sont ici",
 				"C://");
-		Category c1 = new Category ("2","Volants","Les animaux volants",
+		Category c1 = new Category ("2","Rock","Les meilleurs titres rock sont ici",
 				"C://");
-		Category c2 = new Category ("3","Terrestres","Les animaux Terrestres",
+		Category c2 = new Category ("3","Jazz","Les meilleurs titres jazz sont ici",
 				"C://");
-		Category c3 = new Category ("4","Iles","Poney des iles",
+		Category c3 = new Category ("4","Pop","Les meilleurs titres pop sont ici",
 				"C://");
 		categoryList.add(c);
 		categoryList.add(c1);

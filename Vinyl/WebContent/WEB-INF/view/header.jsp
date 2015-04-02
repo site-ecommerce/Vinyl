@@ -29,7 +29,10 @@
 		<script type="text/javascript" src="/Vinyl/js/bootstrap.js"></script>
 		<script type="text/javascript" src="/Vinyl/js/npm.js"></script>
 		<script type="text/javascript" src="/Vinyl/js/carousel.js"></script>
-	
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 	</head>
 	
 	<body>
@@ -129,12 +132,13 @@
 
 
 
-<div id="my_carousel" class="carousel slide" data-ride="carousel">
+<div class="container">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
 <!-- Bulles -->
 <ol class="carousel-indicators">
-<li data-target="#my_carousel" data-slide-to="0" class="active"></li>
-<li data-target="#my_carousel" data-slide-to="1"></li>
-<li data-target="#my_carousel" data-slide-to="2"></li>
+<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
 </ol>
 <!-- Slides -->
 <div class="carousel-inner">
@@ -154,18 +158,20 @@ style="margin:0px auto;"  /></div>
 <!-- Page 3 -->
 <div class="item">  
 <div class="carousel-page">
-<img src="./img/vinyl.jpg" class="img-responsive img-rounded" />
+<img src="./img/logo.png" class="img-responsive img-rounded" 
+style="margin:0px auto;max-height:100%;"  />
 </div>  
 <div class="carousel-caption">Page 2 de présentation</div>
 </div>     
 </div>
 <!-- Contrôles -->
-<a class="left carousel-control" href="#my_carousel" data-slide="prev">
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 <span class="glyphicon glyphicon-chevron-left"></span>
 </a>
-<a class="right carousel-control" href="#my_carousel" data-slide="next">
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
 <span class="glyphicon glyphicon-chevron-right"></span>
 </a>
+</div>
 </div>
 </body>
 </html>
