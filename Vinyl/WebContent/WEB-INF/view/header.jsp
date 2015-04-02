@@ -40,6 +40,14 @@
       <!-- Secondary Menu -->
       <ul class="nav nav-pills span6">
         <li class="active"><a href="<c:url value="/init" />">Accueil</a></li>
+        <li><a href="">Catégories</a></li>
+        
+        <li>
+	        	<form action="searchServlet" method="post" class="header-search">      
+	      			 <input id="searchId" type="text" name="searchString" required="true" placeholder="Indiquez le nom d'un vinyl" />
+	      			 <button id="searchB" type="submit" value="search" class="glyphicon glyphicon-search"></button>
+	   			</form>
+        </li>
       </ul>
       
       <!-- Header Cart -->
@@ -108,7 +116,7 @@
 				<c:if test="${ infoMessage != null }">
 				    <c:out value="${infoMessage}"/>
 				</c:if>	
-					<a href="<c:url value="/login" />">Se connecter / S'enregistrer &nbsp;</a>  
+					<a href="<c:url value="/login" />">Se connecter &nbsp;</a>  
 					<!--<a onclick="connexion();">Se connecter / S'enregistrer &nbsp;</a>-->
 			</c:otherwise>
 		</c:choose>
