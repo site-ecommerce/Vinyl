@@ -43,8 +43,17 @@
       <!-- Secondary Menu -->
       <ul class="nav nav-pills span6">
         <li class="active"><a href="<c:url value="/init" />">Accueil</a></li>
-        <li><a href="">Catégories</a></li>
-        
+        <li class="dropdown">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catégories</a> 
+                    <!-- Liste des catégories -->
+                    <ul class="dropdown-menu">
+                     <c:forEach items="${ categoryList }" var="category" varStatus="status">
+                      <li><a href="<c:url value="/category">
+              <c:param name="categoryID" value="${ category.categoryId }"/>
+             </c:url>"><c:out value="${category.label}"/></a></li>
+                     </c:forEach>
+                    </ul>
+        </li>
         <li>
 	        	<form action="searchServlet" method="post" class="header-search">      
 	      			 <input id="searchId" type="text" name="searchString" required="true" placeholder="Indiquez le nom d'un vinyl" />
