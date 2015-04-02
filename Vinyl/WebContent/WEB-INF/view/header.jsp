@@ -6,17 +6,17 @@
 		<title>VintageVinyle</title>
 		
 		<!-- Stylesheet -->
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/style.css" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap-theme.css.map" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap.css" rel="stylesheet" type="text/css" />
-		<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/bootstrap.css.map" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap-theme.css.map" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link href="/Vinyl/css/bootstrap.css.map" rel="stylesheet" type="text/css" />
 		
 		
-		<!--<link href="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/css/color/multicolor.css" rel="stylesheet" type="text/css" id="changeColor" />-->
+		<!--<link href="/Vinyl/css/color/multicolor.css" rel="stylesheet" type="text/css" id="changeColor" />-->
 		
 		
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" type="text/css" />
@@ -24,11 +24,11 @@
 		<link rel="shortcut icon" href="/MyMagicPetShop666/img/favicon.ico" />
 		<!-- Scripts -->
 		<script type="text/javascript" src="../../code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/js/functions.js"></script>
-		<script type="text/javascript" src="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/js/bootstrap.js"></script>
-		<script type="text/javascript" src="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/js/npm.js"></script>
-		<script type="text/javascript" src="/B3_LILLE_J2EE_HAMY_DENEUVILLERS/js/carousel.js"></script>
+		<script type="text/javascript" src="/Vinyl/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/Vinyl/js/functions.js"></script>
+		<script type="text/javascript" src="/Vinyl/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/Vinyl/js/npm.js"></script>
+		<script type="text/javascript" src="/Vinyl/js/carousel.js"></script>
 	
 	</head>
 	
