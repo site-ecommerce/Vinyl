@@ -1,0 +1,237 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+	color: #D64252;
+}
+.breadcrumb li a:hover {
+	color: #D64252;
+}
+.btn.p404 {
+	background: #D64252;
+}
+.btn.p404:hover {
+	background: #D64252;
+}
+.header .log-reg a:hover {
+	color: #D64252;
+}
+.header .cart.on i {
+	background: #D64252;
+}
+.header .cart .cart-content .mini-cart-info li h5 a:hover {
+	color: #D64252;
+}
+.header .cart .cart-content .mini-cart-info li p {
+	color: #D64252;
+}
+.header .cart .cart-content .checkout .btn {
+	background: #D64252;
+}
+.header .cart .cart-content .checkout .btn:hover {
+	background: #D64252;
+}
+.navbar-inner .nav li:hover {
+	background: #D64252;
+}
+.navbar-inner .nav li.active a, .navbar-inner .nav li.active a:hover {
+	background: #D64252;
+}
+.navbar-inner .nav li.dropdown.active .dropdown-toggle {
+	background: #D64252;
+}
+.navbar-inner .nav li .dropdown-menu li:hover a, .navbar-inner .nav li .dropdown-menu li.active a {
+	color: #D64252;
+}
+.date a {
+	color: #D64252;
+}
+.small-desc a {
+	color: #D64252;
+}
+.about-list li .thumbnail:hover .icon-service {
+	background: #D64252;
+}
+.about-list li .thumbnail .caption h3 a {
+	color: #D64252;
+}
+address a {
+	color: #D64252;
+}
+.map-form button {
+	background: #D64252;
+}
+.map-form button:hover {
+	background: #D64252;
+}
+.products-filter p a:hover, .products-filter p a.active {
+	color: #D64252;
+}
+.products-filter p a.active i {
+	background: #D64252;
+}
+.products-filter p a i:hover, .products-filter p a.active i:hover {
+	background: #D64252;
+}
+.accordion-heading .accordion-toggle {
+	color: #D64252;
+}
+.pagination ul li.active a, .pagination ul li.active a:hover {
+	background: #D64252;
+	border-color: #D64252;
+}
+.sidebar .nav-stacked li a:hover, .sidebar .nav-stacked li.active a {
+	color: #D64252;
+}
+.sidebar p a {
+	color: #D64252;
+}
+.products-list-small .nav-tabs a.active span {
+	color: #D64252;
+}
+.products-list li .thumbnail .folio-detail a {
+	background: #D64252;
+}
+.products-list li .thumbnail .folio-detail a:hover {
+	background: #D64252;
+}
+.products-list li .thumbnail p a:hover {
+	color: #D64252;
+}
+.products-list li .rating i {
+	color: #D64252;
+}
+.products-list li .thumbnail .price {
+	color: #D64252;
+}
+.products-list li .thumbnail input[type=button] {
+	background: #D64252;
+}
+.products-list li:hover .thumbnail input[type=button]:hover {
+	background: #D64252;
+}
+.products-list-small li:hover .thumbnail input[type=button]:hover {
+	background: #D64252;
+}
+.add-list-detail:hover, .add-comp-detail:hover {
+	background: #D64252;
+}
+.products-list li .thumbnail:hover .add-list:hover, .products-list li .thumbnail:hover .add-comp:hover {
+	background: #D64252;
+}
+.products-list li .thumbnail .new {
+	background: #AD0;
+}
+.products-list li .thumbnail .sale {
+	background: #F33;
+}
+.blog-list li a {
+	color: #D64252;
+}
+.blog-list li .blog-thumb a {
+	background: #D64252;
+}
+.blog-list li .blog-thumb a:hover {
+	background: #D64252;
+}
+.blog-list li .btn {
+	background: #D64252;
+}
+.blog-list li .btn:hover {
+	background: #D64252;
+}
+.media-list a {
+	color: #D64252;
+}
+.media-list .media .media-body a.reply:hover {
+	background: #D64252;
+}
+.write-review input[type=submit] {
+	background: #D64252;
+}
+.write-review input[type=submit]:hover {
+	background: #D64252;
+}
+.main-rating i {
+	color: #D64252;
+}
+.input-quantity {
+	background: #D64252;
+}
+.btn-add-cart {
+	background: #D64252;
+}
+.table td a {
+	color: #D64252;
+}
+.main-checkout .btn {
+	background: #D64252;
+}
+.main-checkout .btn:hover {
+	background: #D64252;
+}
+.footer p a {
+	color: #D64252;
+}
+.footer .footer-contact li a {
+	color: #D64252;
+}
+.footer-links ul li a:hover {
+	color: #D64252;
+}
+.copy p a {
+	color: #D64252;
+}
+
+/* Tablet layout */
+@media (min-width: 768px) and (max-width: 979px) {
+.navbar-inner .nav li:hover, .navbar-inner .nav li:hover a {
+	background: #D64252;
+}
+.navbar-inner .nav li.dropdown.open .dropdown-toggle, .navbar-inner .nav li.dropdown.active.open .dropdown-toggle {
+	background: #D64252;
+}
+}
+
+/* Mobile landscape layout */
+@media (min-width: 480px) and (max-width: 767px) {
+.navbar-inner .nav li:hover, .navbar-inner .nav li:hover a {
+	background: #D64252;
+}
+.navbar-inner .nav li.dropdown.open .dropdown-toggle, .navbar-inner .nav li.dropdown.active.open .dropdown-toggle {
+	background: #D64252;
+}
+}
+
+/* Mobile portrait layout */
+@media (max-width: 479px) {
+.navbar-inner .nav li:hover, .navbar-inner .nav li:hover a {
+	background: #D64252;
+}
+.navbar-inner .nav li.dropdown.open .dropdown-toggle, .navbar-inner .nav li.dropdown.active.open .dropdown-toggle {
+	background: #D64252;
+}
+}
+
+.rainbow {
+    background: red; /* not working, let's see some red */
+    background: -moz-linear-gradient( top ,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 255, 0, 1) 15%,
+        rgba(0, 255, 0, 1) 30%,
+        rgba(0, 255, 255, 1) 50%,
+        rgba(0, 0, 255, 1) 65%,
+        rgba(255, 0, 255, 1) 80%,
+        rgba(255, 0, 0, 1) 100%);
+    background: -webkit-gradient(linear,  left top,  left bottom, 
+        color-stop(0%, rgba(255, 0, 0, 1)), 
+        color-stop(15%, rgba(255, 255, 0, 1)),
+        color-stop(30%, rgba(0, 255, 0, 1)),
+        color-stop(50%, rgba(0, 255, 255, 1)),
+        color-stop(65%, rgba(0, 0, 255, 1)),
+        color-stop(80%, rgba(255, 0, 255, 1)),
+        color-stop(100%, rgba(255, 0, 0, 1)));
+}
+
+
+
