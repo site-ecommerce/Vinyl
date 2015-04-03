@@ -61,6 +61,47 @@
 	   			</form>
         </li>
       </ul>
+   
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-backdrop="false" data-toggle="modal" data-target="#myModal">
+  Se connecter
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Se connecter</h4>
+      </div>
+      <div class="modal-body">
+        <div class="span6">
+        <br>
+				<c:if test="${ errorMessage != null }">
+				    <c:out value="${errorMessage}"/>
+				</c:if>
+				 <form action="loginServlet" method="post" class="map-form">
+					 <label for ="#emailId" class="control-label">Email : </label>
+					 <br>
+					 <input id="emailId" type="text" name="MAIL_ADDRESS" required="true" placeholder="Entrez votre email" />
+					 <br>
+					 <label for ="passwordId" class="control-label">Mot de passe: </label>
+					 <br>
+					 <input id="passwordId" name="PASSWORD" type="password" required="true" placeholder="Mot de passe" />
+					 	<div class="control-group no-margin">
+					    	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button id="loginB" type="submit" name="connection" class="btn">Se connecter</button>
+					  	</div>
+				</form>
+			</div>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
       
       <!-- Header Cart -->
       <div class="cart"><i class="glyphicon glyphicon-shopping-cart"></i>

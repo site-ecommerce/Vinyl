@@ -775,7 +775,7 @@ address a:hover {
 .map-form button {
 	padding: 0 10px;
 	height: 30px;
-	background: #0CC;
+	background: #FFA500;
 	border: none;
 	border-radius: 0;
 	box-shadow: none;
@@ -784,7 +784,7 @@ address a:hover {
 	text-shadow: none;
 }
 .map-form button:hover {
-	background: #A6D777;
+	background: #D3D3D3;
 	color: #FFF;
 }
 /* Products Filter */

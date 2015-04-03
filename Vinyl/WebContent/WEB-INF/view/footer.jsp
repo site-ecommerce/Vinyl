@@ -31,7 +31,7 @@
     </div>
   </div>
 </div>-->
-<hr style="height: 10px; background-color:#CC9CE2; margin:0; border:none;">
+<hr style="height: 10px; background-color:#FFA500; margin:0; border:none;">
 
 <!-- Footer Links 
 <div class="footer-links">
