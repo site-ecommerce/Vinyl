@@ -1,21 +1,18 @@
-
-	<%@include file="header.jsp" %>
-
-<%
-//Affichage des produits
-%>
+<%@ include file="header.jsp" %>
+<% //Affichage des produits %>
 
 <c:choose>
 <c:when test="${ productFoundList != null }">
 <div class="products-list">
   <div class="container">
-<h1>Produits recherchés :</h1>
+<h1> Produits recherchés :</h1>
 <ul class="thumbnails">
 <c:forEach items="${ productFoundList }" var="product" varStatus="status">
- 	
 				<li class="span3"> 
-					<div class="thumbnail"><a href="<c:url value="/product">
-							  <c:param name="productID" value="${ product.id }"/>
+					<div class="thumbnail">
+						<a href="
+							<c:url value="/product">
+							<c:param name="productID" value="${ product.id }"/>
 							</c:url>" class="thumb">
 							<img src="http://placehold.it/350x150">
 							</a>
@@ -48,7 +45,7 @@ session.removeAttribute("productFoundList");
 <c:otherwise>
 <div class="products-list">
   <div class="container">
-    <h3>Notre <span class="glyphicon glyphicon-thumbs-up" >Sélection</span></h3>
+    <h3><span class="glyphicon glyphicon-thumbs-up"> </span>  Notre <span>Sélection</span></h3>
     <ul class="thumbnails">
       <c:forEach items="${ productList }" var="product" varStatus="status">
 				<li class="span3"> 
