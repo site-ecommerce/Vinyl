@@ -61,11 +61,14 @@ session.removeAttribute("productFoundList");
 				        <h3><c:out value="${product.label}"></c:out></h3>
 				        <p><c:out value="${product.label}"></c:out></p>
 				        <p>
-				        	
-				        	<h5>
+				        	     	
+				        	<div id="nbEtoiles">
 				        		Note du produit :
-										<!--  <h6><c:out value="${product.stars}"></c:out></h6>-->
-				        	</h5>
+				        		<c:forEach var="etoile" begin="1" end="${product.stars}">
+				        			<h6 class="glyphicon glyphicon-star"></h6>
+				        		</c:forEach>
+							</div>			
+				        	
 				        	
 				        	
 				        	<h5>Quantité : 
