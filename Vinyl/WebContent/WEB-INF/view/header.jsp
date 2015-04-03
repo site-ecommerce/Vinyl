@@ -120,11 +120,11 @@
 						<a href="#"><img src="" alt="Produit" /></a>
 						 <div class="mini-cart-detail">
 			                  <h5><a href="#"><c:out value="${product.label}"/></a></h5>
-			                  <em><c:out value="${cartLine.lineNumber}"/> exemplaire(s)</em>
-			                  <p>&euro; <c:out value="${product.ATIP}"/> </p>
+			                  <em><c:out value="${cartLine.getQuantite()}"/> exemplaire(s)</em>
+			                  <p>&euro; <c:out value="${product.ATIP * cartLine.getQuantite()}"/> </p>
 		                 </div>			    				     
 					    </li>
-					   <c:set var="total" value="${total = total + product.ATIP * cartLine.lineNumber}" scope="page" />
+					   <c:set var="total" value="${total = total + product.ATIP * cartLine.getQuantite}" scope="page" />
 					</c:if>
 				</c:forEach>
 			</c:forEach>
@@ -136,7 +136,7 @@
                    <c:if test="${total != null }">
                    	 <p class="total">Total 
                    	 <span>&euro;
-                   	 	 <c:out value="${total}"></c:out>Euros
+                   	 	 <c:out value="${total}"></c:out>
                    	 	 <div class="checkout"><a href="<c:url value="/myCart">
 			 				 	<c:param name="transaction" value="print"/>
 								</c:url>" class="btn">Voir le panier</a> 

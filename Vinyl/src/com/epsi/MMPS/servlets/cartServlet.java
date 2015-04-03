@@ -40,7 +40,7 @@ public class cartServlet extends HttpServlet {
 				}
 					Cart cT = (Cart) session.getAttribute("cart"); // get the current cart
 					Customer c = (Customer) session.getAttribute("customer");
-					cT.addLineToCart(cT.getCartLineList(), c.getCustomerId(), new CartLine(request.getParameter("productId"),1));
+					cT.addLineToCart(cT.getCartLineList(), c.getCustomerId(), new CartLine(request.getParameter("productId"),1,Integer.parseInt(request.getParameter("qte"))));
 					this.getServletContext().getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);			
 			}else{
 				this.getServletContext().getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);
