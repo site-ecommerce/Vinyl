@@ -27,10 +27,7 @@
 			          <p class="price">&euro; <c:out value="${product.ATIP}" /> </p>
 			             <c:choose>
 			          <c:when test="${ customer != null }">
-					      <a class="buyLink" href="<c:url value="/myCart">
-							  <c:param name="transaction" value="add"/>
-							  <c:param name="productId" value="${ product.id }"/>
-							</c:url>"  ><div class="addTocart" >Ajouter au panier</div></a>
+					     <div class="addTocart" >Ajouter au panier</div></a>
 				     </c:when>
 				     <c:otherwise>
 					     <a class="buyLink" href="<c:url value="/login">
@@ -55,8 +52,13 @@ session.removeAttribute("productFoundList");
     <ul class="thumbnails">
       <c:forEach items="${ productList }" var="product" varStatus="status">
 				<li class="span3"> 
-				    <div class="thumbnail">
-				      <img src="./img/logo.png" alt="${product.label}">
+				    <div class="thumbnail">		
+				    
+				    	<a href="<c:url value="/product">
+							  <c:param name="productID" value="${ product.id }"/>
+							</c:url>" class="thumb">
+							<img src="./img/logo.png" alt="${product.label}">
+							</a>
 				      <div class="caption">
 				        <h3><c:out value="${product.label}"></c:out></h3>
 				        <p><c:out value="${product.label}"></c:out></p>
@@ -69,14 +71,19 @@ session.removeAttribute("productFoundList");
 				        		</c:forEach>
 							</div>			
 				        	
-				        	
+		
 				        	
 				        	<h5>Quantité : 
-				        		 <input type="number" name="nombreProduit" id="quantite" min="1" value="1" />
+				        		 <input type="number" name="nombreProduit" id="quantite" min="1" value="1" required="true"/>
 				        	</h5>
 				        	
 				        	
-				        	<a href="#" class="btn btn-primary" role="button">Ajouter au panier</a>
+				        	<h4>Prix : <c:out value="${product.ATIP}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
+				        	 <a href="<c:url value="/myCart">
+							  <c:param name="transaction" value="add"/>
+							  <c:param name="productId" value="${ product.id }"/>
+							  <c:param name="quantite" value="" />
+							</c:url>" class="btn btn-primary" role="button">Ajouter au panier</a>
 				       </p>
 				      </div>
 				    </div>	     
@@ -88,7 +95,6 @@ session.removeAttribute("productFoundList");
 <div class="container">
   <div class="row">
     <div class="span12">
-
       
       <!-- Portfolio Columns -->
       <div class="products-list products-list-simple">

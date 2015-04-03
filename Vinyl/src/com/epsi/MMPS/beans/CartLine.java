@@ -6,7 +6,7 @@ import java.util.List;
 public class CartLine {
 	private String productId;
 	private int lineNumber;
-	
+
 	public CartLine() {
 		super();
 	}
@@ -27,6 +27,4 @@ public class CartLine {
 	public void setLineNumber(int lineNumber) {
 		this.lineNumber = lineNumber;
 	}
-	
-	
 }

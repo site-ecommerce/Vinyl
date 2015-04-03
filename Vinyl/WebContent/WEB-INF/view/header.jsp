@@ -114,11 +114,14 @@
       </div>
       
       <!-- Header Login -->
+      
       <div class="cart"><i class="glyphicon glyphicon-off"></i>
+        <c:if test="${ customer != null}">
+	      		<a href="">Mon compte</a>
+	      </c:if>
       <p class="log-reg">
       	<c:choose>
 			<c:when test="${ customer != null }">
-				<a href="">Mon compte</a>
 				<a href="<c:url value="/logout" />">Se déconnecter ( ${customer.firstname} ) &nbsp;</a>
 			</c:when>
 			<c:otherwise>
