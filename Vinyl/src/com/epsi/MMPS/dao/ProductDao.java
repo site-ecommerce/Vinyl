@@ -24,11 +24,12 @@ public class ProductDao implements Serializable{
 	}
 	public void getAllProducts(){
 		productList = new LinkedList<Product>();
-		Product p = new Product("1", "Vinyl A", 19.99, "Album classique", "C://", "1");
-		Product p1 = new Product("2", "Vinyl B", 16.99, "Album rock", "C://", "2");
-		Product p2 = new Product("3", "Vinyl C", 46.99, "Album jazz 1", "C://", "3");
-		Product p3 = new Product("4", "Vinyl D", 86.99, "Album jazz 2", "C://", "3");
-		Product p4 = new Product("5", "Vinyl E", 26.99, "Album pop", "C://", "4");
+		Product p = new Product("1", "Vinyl A", 19.99, "Album classique",3, "C://", "1");
+		Product p1 = new Product("2", "Vinyl B", 16.99, "Album rock",5, "C://", "2");
+		Product p2 = new Product("3", "Vinyl C", 46.99, "Album jazz 1",2, "C://", "3");
+		Product p3 = new Product("4", "Vinyl D", 86.99, "Album jazz 2",4, "C://", "3");
+		Product p4 = new Product("5", "Vinyl E", 26.99, "Album pop",2, "C://", "4");
+		
 		productList.add(p);
 		productList.add(p1);
 		productList.add(p2);

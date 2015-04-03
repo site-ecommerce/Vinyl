@@ -605,6 +605,11 @@ body {
 	float: left
 }
 
+#quantite{
+	width:30px;
+	margin-left:52%;
+}
+
 /*Search barre de navigation*/
 .header-search button {
 	padding: 0;
@@ -1066,6 +1071,7 @@ address a:hover {
 	-moz-transition: all linear 0.25s;
 	-webkit-transition: all linear 0.25s;
 	-o-transition: all linear 0.25s;
+	list-style-type:none;
 }
 .products-list li .thumbnail {
 	padding: 9px;

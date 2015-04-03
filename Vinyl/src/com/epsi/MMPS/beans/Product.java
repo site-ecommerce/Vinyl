@@ -11,18 +11,20 @@ public class Product implements Serializable {
 	private String label;
 	private double ATIP;
 	private String description;
+	private int stars;
 	private String visual;
 	private String categoryId;
 	public Product(){
 		super();
 	}
-	public Product(String id, String label, double aTIP, String description,
+	public Product(String id, String label, double aTIP, String description,int s,
 			String visual, String categoryId) {
 		super();
 		this.id = id;
 		this.label = label;
 		ATIP = aTIP;
 		this.description = description;
+		this.stars = s;
 		this.visual = visual;
 		this.categoryId = categoryId;
 	}
@@ -53,6 +55,12 @@ public class Product implements Serializable {
 	}
 	public String getDescription() {
 		return description;
+	}
+	public int getStars() {
+		return stars;
+	}
+	public void setStars(int stars) {
+		this.stars = stars;
 	}
 	public void setDescription(String description) {
 		this.description = description;

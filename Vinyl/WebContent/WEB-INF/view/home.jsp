@@ -51,38 +51,32 @@ session.removeAttribute("productFoundList");
 <c:otherwise>
 <div class="products-list">
   <div class="container">
-    <h3>Notre <span>Sélection</span></h3>
+    <h3>Notre <span class="glyphicon glyphicon-thumbs-up" >Sélection</span></h3>
     <ul class="thumbnails">
       <c:forEach items="${ productList }" var="product" varStatus="status">
 				<li class="span3"> 
-					<div class="thumbnail"><a href="<c:url value="/product">
-							  <c:param name="productID" value="${ product.id }"/>
-							</c:url>" class="thumb">
-							<img src="http://placehold.it/350x150">
-							</a>
-					<% //<img src="<c:out value="${product.visual}" />" alt="Product" /> %>
-					
-					
-			          <p><a href="<c:url value="/product">
-							  <c:param name="productID" value="${ product.id }"/>
-							</c:url>" class="thumb">
-							<c:out value="${product.label}"></c:out>
-							</a>
-						</p>
-			          <p class="price">&euro; <c:out value="${product.ATIP}" /> </p>
-			          <c:choose>
-			          <c:when test="${ customer != null }">
-					      <a class="buyLink" href="<c:url value="/myCart">
-							  <c:param name="transaction" value="add"/>
-							  <c:param name="productId" value="${ product.id }"/>
-							</c:url>"  ><div class="addTocart" >Ajouter au panier</div></a>
-				     </c:when>
-				     <c:otherwise>
-					     <a  class="buyLink" href="<c:url value="/login">
-							</c:url>">Ajouter au panier</a>
-				     </c:otherwise>
-				     </c:choose>
-		            </div>	    				     
+				    <div class="thumbnail">
+				      <img src="./img/logo.png" alt="${product.label}">
+				      <div class="caption">
+				        <h3><c:out value="${product.label}"></c:out></h3>
+				        <p><c:out value="${product.label}"></c:out></p>
+				        <p>
+				        	
+				        	<h5>
+				        		Note du produit :
+										<!--  <h6><c:out value="${product.stars}"></c:out></h6>-->
+				        	</h5>
+				        	
+				        	
+				        	<h5>Quantité : 
+				        		 <input type="number" name="nombreProduit" id="quantite" min="1" value="1" />
+				        	</h5>
+				        	
+				        	
+				        	<a href="#" class="btn btn-primary" role="button">Ajouter au panier</a>
+				       </p>
+				      </div>
+				    </div>	     
 				</li>
 	  </c:forEach>
     </ul>
