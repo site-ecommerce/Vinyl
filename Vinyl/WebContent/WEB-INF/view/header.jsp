@@ -124,7 +124,7 @@
 			                  <p>&euro; <c:out value="${product.ATIP * cartLine.getQuantite()}"/> </p>
 		                 </div>			    				     
 					    </li>
-					   <c:set var="total" value="${total = total + product.ATIP * cartLine.getQuantite}" scope="page" />
+					   <c:set var="total" value="${total = total + product.ATIP * cartLine.getQuantite()}" scope="page" />
 					</c:if>
 				</c:forEach>
 			</c:forEach>

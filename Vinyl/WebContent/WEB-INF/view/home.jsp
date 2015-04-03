@@ -77,7 +77,7 @@ session.removeAttribute("productFoundList");
 				        	 <a href="<c:url value="/myCart">
 							  <c:param name="transaction" value="add"/>
 							  <c:param name="productId" value="${ product.id }"/>
-							  <c:param name="quantite" value="8" />
+							  <c:param name="qte" value="8" />
 							</c:url>" class="btn btn-primary" role="button">Ajouter au panier</a>
 				       </p>
 				      </div>
