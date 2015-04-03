@@ -31,9 +31,9 @@
 				  <tr>
 					<td class="thumb-cart"><a href="#"><img src="http://placehold.it/350x150"></a></td>
 					<td class="p-name"><h5><a href="#"><c:out value="${product.label}"/></a></h5></td>
-					<td> <c:out value="${cartLine.getQuantite}"/></td>
+					<td> <c:out value="${cartLine.getQuantite()}"/></td>
 					<td><c:out value="${product.ATIP}"/></td>
-					<td><strong><c:out value="${product.ATIP * cartLine.getQuantite}"/>&euro;</strong></td>
+					<td><strong><c:out value="${product.ATIP * cartLine.getQuantite()}"/>&euro;</strong></td>
 				  </tr>
 				</c:if>
 			</c:forEach>
