@@ -149,7 +149,7 @@ body {
 	padding: 0 10px;
 	border-radius: 0;
 	line-height: 40px;
-	color: white;
+	color: black;
 	display: block;
 	transition: all linear 0.25s;
 	-ms-transition: all linear 0.25s;
@@ -187,13 +187,13 @@ body {
 	display: block;
 	float: left;
 }
+/*Bouton s'inscrire*/
 .header .log-reg a:hover {
-	color: #0CC;
+	color: white;
 }
 /* Header Cart */
 .header .cart {
 	padding-left: 20px;
-	border-left: 1px solid #F0F0F0;
 	position: relative;
 	float: right;
 }
@@ -594,7 +594,7 @@ body {
 .header-search input[type=text] {
 	margin: 0;
 	padding: 5px 10px;
-	height: 30px;
+	height: 45px;
 	background: #DCDCDC;
 	border: none;
 	border-radius: 0;
@@ -610,11 +610,12 @@ body {
 	margin-left:43%;
 }
 
-/*Search barre de navigation*/
+/*Bouton Search barre de navigation*/
 .header-search button {
+	left:5px;
 	padding: 0;
 	width: 40px;
-	height: 40px;
+	height: 45px;
 	background: #D3D3D3;
 	border: none;
 	border-left: none;
@@ -1019,7 +1020,7 @@ address a:hover {
 /* Product List */
 .products-list {
 	padding-top: 40px;
-	background: #F9F9F9 url(../img/bg-line-vert.png);
+	background: #F9F9F9 url(../img/fond.png);
 	box-shadow: 0 -10px 0 rgba(0,0,0,0.1);
 	position: relative;
 }
@@ -1968,7 +1969,7 @@ address a:hover {
 }
 .footer-links {
 	padding-top: 40px;
-	background: #F9F9F9 url(../img/bg-line-vert.png) repeat;
+	background: #F9F9F9 url(../img/fond.png) repeat;
 }
 .footer-links h5 {
 	margin-bottom: 10px;
@@ -2018,7 +2019,7 @@ address a:hover {
 /* Copy */
 .copy {
 	padding: 40px 0;
-	background: #F9F9F9 url(../img/bg-line-vert.png) repeat;
+	background: #F9F9F9 url(../img/fond.png) repeat;
 }
 .copy img {
 	margin: 0 auto 20px;

@@ -32,7 +32,9 @@
 					      <a class="buyLink" href="<c:url value="/myCart">
 							  <c:param name="transaction" value="add"/>
 							  <c:param name="productId" value="${ product.id }"/>
-							</c:url>"  ><div class="addTocart" >Ajouter au panier</div></a>
+							</c:url>">
+							<div class="addTocart" >Ajouter au panier</div>
+							</a>
 				     </c:when>
 				     <c:otherwise>
 					     <a  class="buyLink" href="<c:url value="/login">

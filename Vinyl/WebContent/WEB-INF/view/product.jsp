@@ -7,18 +7,6 @@
 <div class="container">
   <div class="row"> 
     
-    <!-- Sidebar Media Gallery -->
-    <div class="span3">
-      <ul class="media-gallery">
-        <li><a href="#"><img src="products/iphone.png" alt="Product" /></a></li>
-        <li><a href="#"><img src="products/iphone.png" alt="Product" /></a></li>
-        <li><a href="#"><img src="products/iphone.png" alt="Product" /></a></li>
-        <li><a href="#"><img src="products/iphone.png" alt="Product" /></a></li>
-        <li><a href="#"><img src="products/iphone.png" alt="Product" /></a></li>
-        <li><a href="#"><img src="products/iphone.png" alt="Product" /></a></li>
-      </ul>
-    </div>
-    
     <!-- Products List -->
     <div class="span9"> 
       

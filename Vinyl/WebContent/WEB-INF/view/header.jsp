@@ -39,8 +39,6 @@
 	<div class="header navbar-fixed-top">
   <div class="container">
     <div class="row"> 
-      
-      <!-- Secondary Menu -->
       <ul class="nav nav-pills span6">
         <li class="active"><a href="<c:url value="/init" />">Accueil</a></li>
         <li class="dropdown">
@@ -56,14 +54,18 @@
         </li>
         <li>
 	        	<form action="searchServlet" method="post" class="header-search">      
-	      			 <input id="searchId" type="text" name="searchString" required="true" placeholder="Indiquez le nom d'un vinyl" />
+	      			 <input id="searchId" type="text" name="searchString" required="true" placeholder="Rechercher" />
 	      			 <button id="searchB" type="submit" value="search" class="glyphicon glyphicon-search"></button>
 	   			</form>
         </li>
       </ul>
-   
+      <c:choose>
+<c:when test="${ customer != null }">
+</c:when>
+<c:otherwise>     
+
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-backdrop="false" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn-lg cart" data-backdrop="false" data-toggle="modal" data-target="#myModal">
   Se connecter
 </button>
 
@@ -72,7 +74,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	<span aria-hidden="true">&times;</span>
+        </button>
         <h4 class="modal-title" id="myModalLabel">Se connecter</h4>
       </div>
       <div class="modal-body">
@@ -102,17 +106,19 @@
     </div>
   </div>
 </div>
-      
+</c:otherwise>
+</c:choose>
+
+
       <!-- Header Cart -->
-      <div class="cart"><i class="glyphicon glyphicon-shopping-cart"></i>
-        <p>Panier</p>
-        
+      <div class="cart">
+      <i class="glyphicon glyphicon-shopping-cart"></i>
+        <p>Panier</p> 
         <!-- Header Cart Content -->
         <div class="cart-content">
           <div class="mini-cart-info">
             <h3>Panier</h3>
-            <ul>
-            
+            <ul>   
             <c:forEach items="${ cart.cartLineList }" var="cartLine" varStatus="status">
 				<c:forEach items="${ productList }" var="product" varStatus="status">
 					<c:if test="${ product.id == cartLine.productId }">
@@ -130,7 +136,7 @@
 			</c:forEach>
 			</ul>
           </div>
-          
+
            <div class="mini-cart-total">
            
                    <c:if test="${total != null }">
@@ -148,37 +154,44 @@
                    </c:if>
                    
                     <c:if test="${total == null }">
-                   	 <p class="total"><c:out value="Vous n'avez pas d'articles :'("></c:out></p>
+                   	 <p class="total"><c:out value="Vous n'avez pas d'articles."></c:out></p>
                    </c:if>
            	</div>
         </div>
       </div>
       
       <!-- Header Login -->
-      
-      <div class="cart"><i class="glyphicon glyphicon-off"></i>
-        <c:if test="${ customer != null}">
-	      		<a href="">Mon compte</a>
-	      </c:if>
+      <div class="cart">
       <p class="log-reg">
       	<c:choose>
 			<c:when test="${ customer != null }">
-				<a href="<c:url value="/logout" />">Se déconnecter ( ${customer.firstname} ) &nbsp;</a>
+				<div class="cart">
+      			<i class="glyphicon glyphicon-home"></i>
+        		<a class="dropdown-toggle" data-toggle="dropdown">
+        			<p>${customer.firstname}</p>
+        		</a>
+        		<ul class="dropdown-menu">
+                	<li><a href="<c:url value="/compte" />">Mon compte</a></li>
+                    <li><a href="<c:url value="/commandes" />">Mes commandes</a></li>
+                    <li><a href="<c:url value="/fidelite" />">Mon espace fidélité</a></li>
+                    <li><a href="<c:url value="/avantages" />">Mes avantages</a></li>
+                    <li><a href="<c:url value="/logout" />">Se déconnecter&nbsp;</a>
+				</ul>
+      		</div>
 			</c:when>
 			<c:otherwise>
-				<c:if test="${ errorMessage != null }">
+  				<c:if test="${ errorMessage != null }">
 				    <c:out value="${errorMessage}"/>
 				</c:if>
 				<c:if test="${ infoMessage != null }">
 				    <c:out value="${infoMessage}"/>
-				</c:if>	
-					<a href="<c:url value="/login" />">Se connecter &nbsp;</a>  
-					<!--<a onclick="connexion();">Se connecter / S'enregistrer &nbsp;</a>-->
+				</c:if>
+				<i class="glyphicon glyphicon-pencil"></i>
+					<a href="<c:url value="/login" />">S'inscrire &nbsp;</a>
 			</c:otherwise>
 		</c:choose>
       </p>
       </div>
-      <div class="clearfix"></div>
     </div>
   </div>
 </div>
@@ -198,23 +211,23 @@
 <!-- Page 1 -->
 <div class="item active">  
 <div class="carousel-page">
-<img src="./img/logo.png" class="img-responsive" style="margin:0px auto;" />
+<img src="./img/vinyl.jpg" class="img-responsive" style="margin:0px auto;" />
 </div> 
-<div class="carousel-caption">Page 1 de présentation</div>
+<div class="carousel-caption">Bienvenue</div>
 </div>   
 <!-- Page 2 -->
 <div class="item"> 
-<div class="carousel-page"><img src="./img/logo.png" class="img-responsive img-rounded" 
-style="margin:0px auto;"  /></div> 
-<div class="carousel-caption">Page 2 de présentation</div>
+<div class="carousel-page">
+<img src="./img/livraison.jpg" class="img-responsive img-rounded" style="margin:0px auto;"  /></div> 
+<div class="carousel-caption">L'été revient les frais de port sont offert. Offre limité.</div>
 </div>  
 <!-- Page 3 -->
 <div class="item">  
 <div class="carousel-page">
-<img src="./img/logo.png" class="img-responsive img-rounded" 
+<img src="./img/vinyls.jpg" class="img-responsive img-rounded" 
 style="margin:0px auto;max-height:100%;"  />
 </div>  
-<div class="carousel-caption">Page 2 de présentation</div>
+<div class="carousel-caption">De nombreux avantages pour vous.</div>
 </div>     
 </div>
 <!-- Contrôles -->
