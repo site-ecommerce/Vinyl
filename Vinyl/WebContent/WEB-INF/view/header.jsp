@@ -140,7 +140,8 @@
            <div class="mini-cart-total">
            
                    <c:if test="${total != null }">
-                    <c:set var="fraisDePort" value="${fraisDePort = 1 + 0.02 * total}" scope="page" />
+                   
+                    <c:set var="fraisDePort" value="${fraisDePort = 1 + 0.02 * total}" scope="page"/>
                     <p style="color:black;">Frais de port : <c:out value="${fraisDePort}"/>  &euro;</p>
                    	 <p class="total">Total 
                    	 <span>&euro;
