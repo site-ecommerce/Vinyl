@@ -68,17 +68,17 @@ session.removeAttribute("productFoundList");
 				        		</c:forEach>
 							</div>			
 			
-			
-				        	<h5>Quantité : 
-				        		 <input type="number" name="nombreProduit" id="quantite" min="1" value="1" required="true"/>
+				        	<h5>Quantité :
+				        		 <c:set var="quantite" value="1"/>
+				        		 <input type="number" name="quantite" id="quantite" min="1" value="${quantite}"/>
 				        	</h5>
 				        	
 				        	<h4>Prix : <c:out value="${product.ATIP}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
 				        	 <a href="<c:url value="/myCart">
 							  <c:param name="transaction" value="add"/>
-							  <c:param name="productId" value="${ product.id }"/>
-							  <c:param name="quantite" value="1" />
-							</c:url>" class="btn btn-primary" role="button">Ajouter au panier</a>
+							  <c:param name="productId" value="${product.id }"/>
+							  <c:param name="quantite" value="${quantite}"/>
+							</c:url>" class="btn btn-primary" role="submit">Ajouter au panier</a>
 				       </p>
 				      </div>
 				    </div>	     
