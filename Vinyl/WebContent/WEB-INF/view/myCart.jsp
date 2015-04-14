@@ -25,6 +25,7 @@
 		<c:choose>
 		<c:when test="${ customer != null }">
         <tbody>
+         <c:set var="total" value="0" scope="page"/>
 		<c:forEach items="${ cart.cartLineList }" var="cartLine" varStatus="status">
 			<c:forEach items="${ productList }" var="product" varStatus="status">
 				<c:if test="${ product.id == cartLine.productId }">
@@ -33,11 +34,12 @@
 					<td class="p-name"><h5><a href="#"><c:out value="${product.label}"/></a></h5></td>
 					<td> <c:out value="${cartLine.getQuantite()}"/></td>
 					<td><c:out value="${product.PRIX}"/></td>
-					<td><strong><c:out value="${product.PRIX * cartLine.getQuantite()}"/>&euro;</strong></td>
+					<td><strong><c:out value="${total = total + (product.PRIX * cartLine.getQuantite())}"/>&euro;</strong></td>
 				  </tr>
 				</c:if>
 			</c:forEach>
 		</c:forEach>
+	
         </tbody>
 		</c:when>
 			<c:otherwise>
@@ -45,9 +47,17 @@
 			</c:otherwise>
 		</c:choose>
       </table>
-      <div class="main-checkout"><a href="<c:url value="/order">
-		  </c:url>" class="btn btn-checkout">Commander</a></div>
-</div>
+      <div class="main-checkout">
+     		 <c:if test="${total != null }">
+                    <c:set var="fraisDePort" value="${fraisDePort = 1 + 0.02 * total}" scope="page"/>
+                    <p style="color:black;">Frais de port : <c:out value="${fraisDePort}"/>  &euro;</p>
+                    <p style="color:black;">Total : <c:out value="${total + fraisDePort}"> &euro;</p></c:out>
+            </c:if>
+      	<a href="<c:url value="/order">
+		 	 </c:url>" class="btn btn-checkout">Commander</a>
+		  <a href="<c:url value="/order">
+		  </c:url>" class="btn btn-checkout">Vider votre panier</a>
+	   </div>
 </div>
 </div>
 </div>
