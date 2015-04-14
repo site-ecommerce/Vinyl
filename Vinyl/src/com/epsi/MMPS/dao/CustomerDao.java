@@ -83,11 +83,9 @@ public class CustomerDao implements Serializable{
 	   
 	    Statement statement2 = connexion.createStatement();
 	   
-	    String sql = 	"INSERT INTO `CLIENT`(`NUM_CLIENT`,`NOM`, `PRENOM`, `ADR_MAIL`, `DATE_NAISSANCE`, `ADR_POSTALE`) "
+	    String sql = "INSERT INTO `CLIENT`(`NUM_CLIENT`,`NOM`, `PRENOM`, `ADR_MAIL`, `DATE_NAISSANCE`, `ADR_POSTALE`) "
 	    		+ "VALUES (" + IdClient + ",'" + c.getLastname() + "','" + c.getFirstname() + "','" + c.getMail() + "','" + c.getBirthDate() + "','"+ c.getAddress() + "')";
-	    
-	    System.out.println(sql);
-	    
+	      
 	    statement2.executeUpdate(sql);
 	    	
 		} catch ( SQLException e ) {

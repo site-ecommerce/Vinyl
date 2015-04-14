@@ -123,7 +123,7 @@
 				<c:forEach items="${ productList }" var="product" varStatus="status">
 					<c:if test="${ product.id == cartLine.productId }">
 						<li> 
-						<a href="#"><img src="" alt="Produit" /></a>
+						<!--  <a href="#"><img src="" alt="Produit" /></a>-->
 						 <div class="mini-cart-detail">
 			                  <h5><a href="#"><c:out value="${product.label}"/></a></h5>
 			                  <em><c:out value="${cartLine.getQuantite()}"/> exemplaire(s)</em>

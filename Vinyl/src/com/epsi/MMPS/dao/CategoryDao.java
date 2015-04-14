@@ -1,15 +1,25 @@
 package com.epsi.MMPS.dao;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 import com.epsi.MMPS.beans.Category;
+import com.epsi.MMPS.beans.Customer;
 
 public class CategoryDao implements Serializable{
 
 	public List<Category> categoryList = null;
+	private String url = "jdbc:mysql://localhost:8889/bdd_mon_site_ecomm";
+	private String utilisateur = "root";
+	private String motDePasse = "root";
 	
 	public Category getCategoryById(String id){
 		@SuppressWarnings("rawtypes")
@@ -23,18 +33,39 @@ public class CategoryDao implements Serializable{
 		return null;
 	}
 	public void getAllCategories(){
-		categoryList = new LinkedList<Category>();
-		Category c = new Category ("1","Classique","Les meilleurs titres classiques sont ici",
-				"C://");
-		Category c1 = new Category ("2","Rock","Les meilleurs titres rock sont ici",
-				"C://");
-		Category c2 = new Category ("3","Jazz","Les meilleurs titres jazz sont ici",
-				"C://");
-		Category c3 = new Category ("4","Pop","Les meilleurs titres pop sont ici",
-				"C://");
-		categoryList.add(c);
-		categoryList.add(c1);
-		categoryList.add(c2);
-		categoryList.add(c3);
-	}
+			categoryList = new LinkedList<Category>();
+			
+			Connection connexion = null;
+			
+			try{
+				connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
+			}catch (SQLException e){
+				throw new RuntimeException(e);
+			}
+			
+			try {
+		   
+		    Statement statement = connexion.createStatement();
+		   
+		    ResultSet resultat = statement.executeQuery("SELECT * FROM CATEGORIES ");
+		 
+		    while (resultat.next()){
+		    	Category c = new Category(resultat.getString("ID_categorie"), resultat.getString("LIBELLE"),
+		    							resultat.getString("DESCRIPTION"),"");
+		    	categoryList.add(c);
+		    }
+		
+			} catch ( SQLException e ) {
+				e.printStackTrace();
+		    } finally {
+		    	if ( connexion != null )
+		        try {
+		            /* Fermeture de la connexion */
+		            connexion.close();
+		        } catch ( SQLException ignore ) {
+		        ignore.printStackTrace();
+		        }
+		    }
+		}
+	
 }

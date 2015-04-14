@@ -52,14 +52,15 @@ public void getAllProducts() throws InstantiationException, IllegalAccessExcepti
    
     Statement statement = connexion.createStatement();
    
-    ResultSet resultat = statement.executeQuery("SELECT * FROM ARTICLES" );
+    ResultSet resultat = statement.executeQuery("SELECT ARTICLES.*,LIEN_CATART.ID_CATEGORIE FROM ARTICLES, LIEN_CATART WHERE ARTICLES.ID_ARTICLE = LIEN_CATART.ID_ARTICLE" );
+    
  
     String id ="";
     String label ="";
     Double PRIX = 0.0;
     String description ="";
     String visual = "";
-    String categoryId ="1";
+    String categoryId ="";
    
     while ( resultat.next() ) {
     	id  = resultat.getString("ID_ARTICLE");
@@ -67,6 +68,7 @@ public void getAllProducts() throws InstantiationException, IllegalAccessExcepti
     	PRIX = Double.parseDouble(resultat.getString("PVTTC"));
     	description = resultat.getString("DESCRIPTION");
     	visual = resultat.getString("VISUEL");
+    	categoryId = resultat.getString("ID_CATEGORIE");
  
     	Product p1 = new Product(id,label,PRIX,description,visual,categoryId);
           productList.add(p1);

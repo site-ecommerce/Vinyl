@@ -1,7 +1,11 @@
 package com.epsi.MMPS.beans;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class Customer implements Serializable{
 	private int customerId;
@@ -25,6 +29,7 @@ public class Customer implements Serializable{
 		this.birthDate = birthDate;
 		this.address = address;
 	}
+	
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -61,5 +66,5 @@ public class Customer implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 }
