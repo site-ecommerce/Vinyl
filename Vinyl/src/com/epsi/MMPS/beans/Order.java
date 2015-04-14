@@ -6,12 +6,12 @@ import java.util.Date;
 public class Order implements Serializable{
 	private int OrderId;
 	private int CustomerId;
-	private Date OrderDate;
+	private String OrderDate;
 	private double price;
 	public Order(){
 		super();
 	}
-	public Order(int orderId, int customerId, Date orderDate, double price) {
+	public Order(int orderId, int customerId, String orderDate, double price) {
 		super();
 		OrderId = orderId;
 		CustomerId = customerId;
@@ -30,11 +30,11 @@ public class Order implements Serializable{
 	public void setCustomerId(int customerId) {
 		CustomerId = customerId;
 	}
-	public Date getOrderDate() {
+	public String getOrderDate() {
 		return OrderDate;
 	}
-	public void setOrderDate(Date orderDate) {
-		OrderDate = orderDate;
+	public void setOrderDate(String string) {
+		OrderDate = string;
 	}
 	public double getPrice() {
 		return price;

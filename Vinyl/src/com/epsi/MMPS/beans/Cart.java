@@ -48,5 +48,11 @@ public class Cart {
 		}
 	}
 	
+	public void dropCart(Cart c){
+		for(int i=c.cartLineList.size() - 1; i >= 0  ;i--){
+			c.cartLineList.remove(i);
+		}
+	}
+	
 
 }

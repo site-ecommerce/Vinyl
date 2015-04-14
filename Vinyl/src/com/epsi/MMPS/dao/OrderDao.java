@@ -2,15 +2,26 @@ package com.epsi.MMPS.dao;
 
 import java.util.Date;
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.epsi.MMPS.beans.Customer;
+import com.epsi.MMPS.beans.LineItem;
 import com.epsi.MMPS.beans.Order;
 
 public class OrderDao implements Serializable{
 	public List<Order> OrderList = null;
+	private String url = "jdbc:mysql://localhost:8889/bdd_mon_site_ecomm";
+	private String utilisateur = "root";
+	private String motDePasse = "root";
 	
 	public Order getOrderById(int OrderId){
 		@SuppressWarnings("rawtypes")
@@ -23,14 +34,81 @@ public class OrderDao implements Serializable{
 		}
 		return null;
 	}
-	public void getAllOrders(){
-		SimpleDateFormat formater = null;
-		Date aujourdhui = new Date();
-		formater = new SimpleDateFormat("dd/MM/yy");
-		formater.format(aujourdhui);
-		OrderList = new LinkedList<Order>();
-		Order o = new Order (1,1,aujourdhui,657.25);
-		OrderList.add(o);
+	public ArrayList<Order> getAllOrders(){
+			
+			Connection connexion = null;
+		
+			ArrayList<Order> orderList = new ArrayList<Order>();
+			
+			try{
+				connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
+			}catch (SQLException e){
+				throw new RuntimeException(e);
+			}
+			
+			try {
+		   
+		    Statement statement = connexion.createStatement();
+		   
+		    ResultSet resultat = statement.executeQuery("SELECT * FROM CLIENT ");
+		 
+		    while (resultat.next()){
+		    	Order o = new Order();
+		    	orderList.add(o);
+		    }
+		
+			} catch ( SQLException e ) {
+				e.printStackTrace();
+		    } finally {
+		    	if ( connexion != null )
+		        try {
+		            /* Fermeture de la connexion */
+		            connexion.close();
+		        } catch ( SQLException ignore ) {
+		        ignore.printStackTrace();
+		        }
+		    }
+			return orderList;
+		}
+	   
+	
+	
+	public void ajouterCommande(Order o){
+		Connection connexion = null; 
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch (ClassNotFoundException e){
+			throw new RuntimeException(e);
+		}
+		
+		try{
+			connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
+		}catch (SQLException e){
+			throw new RuntimeException(e);
+		}
+		
+			try {
+		   
+		    Statement statement2 = connexion.createStatement();
+		   
+		    String sql = "INSERT INTO `COMMANDE`(`ID_COMMANDE`,`NUM_CLIENT`, `DATE_COMMANDE`, `TOTAL`) "
+		    		+ "VALUES (" + o.getOrderId()  + "," + o.getCustomerId() + ",'" + o.getOrderDate() + "'," + o.getPrice() + ")";
+		      
+		    statement2.executeUpdate(sql);
+		    	
+			} catch ( SQLException e ) {
+				e.printStackTrace();
+		    } finally {
+		    	if ( connexion != null )
+		        try {
+		            /* Fermeture de la connexion */
+		            connexion.close();
+		        } catch ( SQLException ignore ) {
+		        ignore.printStackTrace();
+		        }
+		    }
+		
 	}
 
 }
