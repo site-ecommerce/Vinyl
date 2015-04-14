@@ -50,7 +50,7 @@ public class OrderDao implements Serializable{
 		    ResultSet resultat = statement.executeQuery("SELECT count(*) as max FROM CLIENT ");
 		 
 		    while (resultat.next()){
-		    	return Integer.parseInt(resultat.getString("max"));
+		    	return Integer.parseInt(resultat.getString("max"))+1;
 		    }
 		
 			} catch ( SQLException e ) {

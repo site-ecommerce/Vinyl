@@ -61,25 +61,29 @@ public class orderServlet extends HttpServlet {
 			 o.setCustomerId(c.getCustomerId());
 			 o.setOrderId(new OrderDao().getAllOrders());
 			 System.out.println("nombre de commandes" + o.getOrderId());
+			 System.out.println("nombre de produits" + lineItemList.size());
 			 //Iterator i = currentCart.getCartLineList().iterator();
 			 //Iterator i1 = pL.iterator();
 			 //Iterator i2 = lineItemList.iterator();
 			 //while (i.hasNext()){ // Parcours des lignes du panier
 			 for(int y=0; y < currentCart.getCartLineList().size();y++){
-				 CartLine cL = currentCart.getCartLineList().get(y);
-				 for(int i=0; i < pL.size();i++){ // Get du prix du produit en fonction de l'id
-					 Product p = pL.get(i);
-					 if (p.getId().equals(cL.getProductId())){
-						 LineItem lI = new LineItem(); //cr�ation d'un object Line item : prix, id produit, id Commande
-						 lI.setOrderId(o.getOrderId());
-						 lI.setProductId(p.getId());
-						 lI.setQuantity(cL.getLineNumber());
-						 lI.setUPrice(lI.getQuantity() * p.getPRIX());
-						 lineItemList.add(lI);
-						 total += lI.getUPrice();
-					 }
-				 }				 
-			 }
+			 CartLine cL = currentCart.getCartLineList().get(y);
+			 for(int i=0; i < pL.size();i++){ // Get du prix du produit en fonction de l'id
+				 Product p = pL.get(i);
+				 if (p.getId().equals(cL.getProductId())){
+					 LineItem lI = new LineItem(); //cr�ation d'un object Line item : prix, id produit, id Commande
+					 lI.setOrderId(o.getOrderId());
+					 lI.setProductId(p.getId());
+					 lI.setQuantity(cL.getLineNumber());
+					 lI.setUPrice(lI.getQuantity() * p.getPRIX());
+					 lineItemList.add(lI);
+					 total += lI.getUPrice();
+				 }
+			 }				 
+		 }
+			 
+			 
+			 
 			
 			 o.setOrderDate(dateFormat.format(date));
 			 o.setPrice(total + ( 1 + 0.02 * total));
