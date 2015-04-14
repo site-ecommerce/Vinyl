@@ -81,7 +81,10 @@
     <servlet-name>category</servlet-name>
     <url-pattern>/category</url-pattern>
   </servlet-mapping>
-  
+    <servlet-mapping>
+    <servlet-name>assistance</servlet-name>
+    <url-pattern>/assistance</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>updateCustom</servlet-name>
     <url-pattern>/updateCustom</url-pattern>
