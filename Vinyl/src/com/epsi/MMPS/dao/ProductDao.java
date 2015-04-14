@@ -14,35 +14,41 @@ import java.util.List;
 import com.epsi.MMPS.beans.Product;
 
 public class ProductDao implements Serializable{
-private static String workingDir = System.getProperty("user.dir")+"/";   
-public List<Product> productList = null;
-public Product getProductById(String id){
-Iterator i = productList.iterator();
-while(i.hasNext()){
-Product p = (Product) i.next();
-if (p.getId().equals(id)){
-return p;
-}
-}
-return null;
-}
+	private static String workingDir = System.getProperty("user.dir")+"/";   
+	public List<Product> productList = null;
+	private String url = "jdbc:mysql://localhost:8889/bdd_mon_site_ecomm";
+	private String utilisateur = "root";
+	private String motDePasse = "root";
+	
+	public Product getProductById(String id){
+		Iterator i = productList.iterator();
+		while(i.hasNext()){
+			Product p = (Product) i.next();
+			if (p.getId().equals(id)){
+				return p;
+			}
+		}
+		return null;
+	}
+	
 public void getAllProducts() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
-productList = new LinkedList<Product>();
-String url = "jdbc:mysql://localhost:3306/bdd_mon_site_ecomm";
-String utilisateur = "root";
-String motDePasse = "";
-Connection connexion = null; 
-try{
-Class.forName("com.mysql.jdbc.Driver");
-}catch (ClassNotFoundException e){
-throw new RuntimeException(e);
-}
-try{
-connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
-}catch (SQLException e){
-    throw new RuntimeException(e);
-}
-try {
+	productList = new LinkedList<Product>();
+	
+	Connection connexion = null; 
+	
+	try{
+		Class.forName("com.mysql.jdbc.Driver");
+	}catch (ClassNotFoundException e){
+		throw new RuntimeException(e);
+	}
+	
+	try{
+		connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
+	}catch (SQLException e){
+		throw new RuntimeException(e);
+	}
+	
+	try {
    
     Statement statement = connexion.createStatement();
    
@@ -52,45 +58,45 @@ try {
     String label ="";
     Double PRIX = 0.0;
     String description ="";
-    int stars = 0;
     String visual = "";
     String categoryId ="1";
    
-  while ( resultat.next() ) {
-  id  = resultat.getString("ID_ARTICLE");
-  label = resultat.getString("LIBELLE"); 
-  PRIX = Double.parseDouble(resultat.getString("PVTTC"));
-  description = resultat.getString("DESCRIPTION");
-  stars = Integer.parseInt(resultat.getString("ETOILES"));
-  visual = resultat.getString("VISUEL");
+    while ( resultat.next() ) {
+    	id  = resultat.getString("ID_ARTICLE");
+    	label = resultat.getString("LIBELLE"); 
+    	PRIX = Double.parseDouble(resultat.getString("PVTTC"));
+    	description = resultat.getString("DESCRIPTION");
+    	visual = resultat.getString("VISUEL");
  
-Product p1 = new Product(id,label,PRIX,description,stars,visual,categoryId);
+    	Product p1 = new Product(id,label,PRIX,description,visual,categoryId);
           productList.add(p1);
-}
+    }
 
-} catch ( SQLException e ) {
-    e.printStackTrace();
-   
-} finally {
-    if ( connexion != null )
+	} catch ( SQLException e ) {
+		e.printStackTrace();
+    } finally {
+    	if ( connexion != null )
         try {
             /* Fermeture de la connexion */
             connexion.close();
         } catch ( SQLException ignore ) {
         ignore.printStackTrace();
         }
+    }
 }
-}
-public void addProduct(Product p){
-productList.add(p);
-}
-public void deleteProduct(String id){
-productList.remove(getProductById(id));
-}
-public List<Product> getProductList() {
-return productList;
-}
-public void setProductList(List<Product> productList) {
-this.productList = productList;
-}
+	public void addProduct(Product p){
+		productList.add(p);
+	}
+
+	public void deleteProduct(String id){
+		productList.remove(getProductById(id));
+	}
+
+	public List<Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Product> productList) {
+		this.productList = productList;
+	}
 }

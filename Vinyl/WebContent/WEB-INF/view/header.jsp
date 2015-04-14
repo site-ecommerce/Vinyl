@@ -92,7 +92,7 @@
 					 <br>
 					 <label for ="passwordId" class="control-label">Mot de passe: </label>
 					 <br>
-					 <input id="passwordId" name="PASSWORD" type="password" required="true" placeholder="Mot de passe" />
+					 <input id="passwordId" name="DATE_NAISSANCE" type="date" required="true" placeholder="Mot de passe" />
 					 	<div class="control-group no-margin">
 					    	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							<button id="loginB" type="submit" name="connection" class="btn">Se connecter</button>

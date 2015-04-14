@@ -8,26 +8,22 @@ public class Customer implements Serializable{
 	private String firstname;
 	private String lastname;
 	private String mail;
-	private Date birthDate;
+	private String birthDate;
 	private String address;
-	private String login;
-	private String password;
 	
 	public Customer() {
 		super();
 	}
 	public Customer(int customerId, String firstname, String lastname,
-			String mail, Date birthDate, String address, String login,
-			String password) {
+			String mail, String birthDate, String address){ 
 		super();
+		
 		this.customerId = customerId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.mail = mail;
 		this.birthDate = birthDate;
 		this.address = address;
-		this.login = login;
-		this.password = password;
 	}
 	public int getCustomerId() {
 		return customerId;
@@ -53,10 +49,10 @@ public class Customer implements Serializable{
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getAddress() {
@@ -64,18 +60,6 @@ public class Customer implements Serializable{
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	
 }

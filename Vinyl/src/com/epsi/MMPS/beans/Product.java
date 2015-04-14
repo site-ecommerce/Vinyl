@@ -1,6 +1,7 @@
 package com.epsi.MMPS.beans;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Product implements Serializable {
 	/**
@@ -17,14 +18,15 @@ public class Product implements Serializable {
 	public Product(){
 		super();
 	}
-	public Product(String id, String label, double pRIX, String description,int s,
+	public Product(String id, String label, double pRIX, String description,
 			String visual, String categoryId) {
 		super();
+		Random rand = new Random();
 		this.id = id;
 		this.label = label;
 		PRIX = pRIX;
 		this.description = description;
-		this.stars = s;
+		this.stars = rand.nextInt(6);
 		this.visual = visual;
 		this.categoryId = categoryId;
 	}

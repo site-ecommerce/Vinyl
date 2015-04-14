@@ -36,7 +36,7 @@ public class loginFormServlet extends HttpServlet {
 	public static final String PASSWORD_CONF = "PASSWORD_CONF";
 	public static final String DATE = "DATE";
 	public static  String ERROR_MESSAGE = "L'adresse e-mail ou le mot de passe saisi est incorrect.";      
-	public static  String INFO_MESSAGE = "Votre compte à été créé avec succès !";      
+	public static  String INFO_MESSAGE = "Votre compte ï¿½ ï¿½tï¿½ crï¿½ï¿½ avec succï¿½s !";      
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -66,27 +66,23 @@ public class loginFormServlet extends HttpServlet {
 		     String name = request.getParameter(NAME);
 		     String firstname = request.getParameter(FIRSTNAME);
 		     String address = request.getParameter(ADDRESS);
-		     String login = request.getParameter(LOGIN);
-		     String passwordConf = request.getParameter(PASSWORD_CONF);
 		     String birthDate = request.getParameter(DATE);
 		     
-			 List<Customer> customerList = (List<Customer>)session.getAttribute("customerList"); //Vérification existence utilisateur
+			 List<Customer> customerList = (List<Customer>)session.getAttribute("customerList"); //Vï¿½rification existence utilisateur
 	    	 CustomerDao cD = new CustomerDao();
 	    	 cD.setCustomerList(customerList);
 	    	 System.out.println(cD.customerList.get(0).getFirstname());
-	    	 Customer c = cD.checkCustomerExist(email, password);
 	    	 
-	    	  if (c != null){ //Si le compte existe déjà
-	    		ERROR_MESSAGE = "Un compte existe déjà avec cette adresse";
+	    	  if (cD.ClientExiste(email) != null){ //Si le compte existe dï¿½jï¿½
+	    		ERROR_MESSAGE = "Un compte existe dï¿½jï¿½ avec cette adresse";
 	    		request.setAttribute("errorMessage", ERROR_MESSAGE);
 	    		this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
 	    	  }else{
-	    		  if (checkCustomerInfo(password, passwordConf, email)){ // si le mail est correct et les mdp identiques
+	    		  if (checkCustomerInfo(email)){ // si le mail est correct et les mdp identiques
 	    			  Date d = isDateValid(birthDate, "dd/MM/yyyy"); // si la date est au bon format
 	    			  if ( d != null){
 	    				  Customer c1 = new Customer(idOne, firstname, name,
-	 	    					 email, d, address, login,
-	 	    				 password);
+	 	    					 email, d.toString(), address);
 	    				 customerList.add(c1);
 	    				 request.setAttribute("infoMessage", INFO_MESSAGE);
 	    				 session.setAttribute("customer", c1);
@@ -97,27 +93,27 @@ public class loginFormServlet extends HttpServlet {
 	    		    		this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
 	    			  }
 	    		  }else{
-	    			  ERROR_MESSAGE = "La vérification du mot de passe a échoué";
+	    			  ERROR_MESSAGE = "La vï¿½rification du mot de passe a ï¿½chouï¿½";
 	  	    		request.setAttribute("errorMessage", ERROR_MESSAGE);
 	  	    		this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
 	    		  }	    		
 	    	  }
 		}
 	}
-	protected boolean checkCustomerInfo(String mp1, String mp2, String mail){
-		Boolean check = false;
-		if (mp1.equals(mp2)){
+	protected boolean checkCustomerInfo(String mail){
+		Boolean test = false;
 			String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";  
 			CharSequence inputStr = mail;  
 			//Make the comparison case-insensitive.  
 			Pattern pattern = Pattern.compile(expression,Pattern.CASE_INSENSITIVE);  
 			Matcher matcher = pattern.matcher(inputStr);  
 			if(matcher.matches()){  
-				check = true;
+				test = true;
 			}  
-		}
-		return check;
+		return test;
 	}
+	
+	
 	protected Date isDateValid(String dateToValidate, String dateFromat){		 
 		if(dateToValidate == null){
 			return null;

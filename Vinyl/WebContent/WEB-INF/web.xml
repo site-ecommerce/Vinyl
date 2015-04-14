@@ -30,6 +30,10 @@
     <servlet-class>com.epsi.MMPS.servlets.loginFormServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>InscriptionServlet</servlet-name>
+    <servlet-class>com.epsi.MMPS.servlets.InscriptionServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>category</servlet-name>
     <servlet-class>com.epsi.MMPS.servlets.categoryServlet</servlet-class>
   </servlet>

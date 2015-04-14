@@ -42,28 +42,28 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		  String email = request.getParameter(MAIL_ADDRESS);
-	      String password = request.getParameter(PASSWORD);
-	     if (Helper.isSet(email) && Helper.isSet(password)){
-	    	 System.out.println("ok");
-	    	 HttpSession session = request.getSession(true);
-	    	 List<Customer> customerList = (List<Customer>)session.getAttribute("customerList");
-	    	 CustomerDao cD = new CustomerDao();
-	    	 cD.setCustomerList(customerList);
-	    	 System.out.println(cD.customerList.get(0).getFirstname());
-	    	 Customer c = cD.checkCustomerExist(email, password);
-	    	 
-	    	  if (c != null){
-	    	        session.setAttribute("customer", c);
-	    	  }else{
-	    		  request.setAttribute("errorMessage", PASSWORD_ERROR_MESSAGE);
-	    	  }
-	      }else{
-	    	  request.setAttribute("errorMessage", "Veuillez remplir tous les champs");
-	      }
-	     this.getServletContext().getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);
-	      
+		  // TODO Auto-generated method stub
+		      String email = request.getParameter(MAIL_ADDRESS);
+		       String password = request.getParameter("DATE_NAISSANCE");
+		      if (Helper.isSet(email) && Helper.isSet(password)){
+		       System.out.println("ok");
+		       HttpSession session = request.getSession(true);
+		       List<Customer> customerList = (List<Customer>)session.getAttribute("customerList");
+		       CustomerDao cD = new CustomerDao();
+		       cD.setCustomerList(customerList);
+		       System.out.println(cD.customerList.get(0).getFirstname());
+		       Customer c = cD.ClientExiste(email);
+		       
+		        if (c != null){
+		              session.setAttribute("customer", c);
+		        }else{
+		         request.setAttribute("errorMessage", PASSWORD_ERROR_MESSAGE);
+		        }
+		       }else{
+		        request.setAttribute("errorMessage", "Veuillez remplir tous les champs");
+		       }
+		      this.getServletContext().getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);
+		       
 	}
 
 }
