@@ -59,14 +59,15 @@ public class orderServlet extends HttpServlet {
 			 List<LineItem> lineItemList = new LinkedList<LineItem>();
 			 Customer c = (Customer)session.getAttribute("customer");
 			 o.setCustomerId(c.getCustomerId());
-			 o.setOrderId(new OrderDao().getAllOrders().size() + 1 );
+			 o.setOrderId(new OrderDao().getAllOrders());
+			 System.out.println("nombre de commandes" + o.getOrderId());
 			 //Iterator i = currentCart.getCartLineList().iterator();
 			 //Iterator i1 = pL.iterator();
 			 //Iterator i2 = lineItemList.iterator();
 			 //while (i.hasNext()){ // Parcours des lignes du panier
 			 for(int y=0; y < currentCart.getCartLineList().size();y++){
 				 CartLine cL = currentCart.getCartLineList().get(y);
-				 for(int i=0; y < pL.size();i++){ // Get du prix du produit en fonction de l'id
+				 for(int i=0; i < pL.size();i++){ // Get du prix du produit en fonction de l'id
 					 Product p = pL.get(i);
 					 if (p.getId().equals(cL.getProductId())){
 						 LineItem lI = new LineItem(); //cr�ation d'un object Line item : prix, id produit, id Commande
@@ -84,7 +85,7 @@ public class orderServlet extends HttpServlet {
 			 o.setPrice(total + ( 1 + 0.02 * total));
 			 new OrderDao().ajouterCommande(o);
 			 new LineItemDao().ajouterLigneCommande(lineItemList);
-			 currentCart.dropCart(currentCart);
+			 //currentCart.dropCart(currentCart);
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/view/myOrder.jsp").forward(request, response);
 		 }
 	}

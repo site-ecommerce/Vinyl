@@ -19,9 +19,9 @@ import com.epsi.MMPS.beans.Order;
 
 public class OrderDao implements Serializable{
 	public List<Order> OrderList = null;
-	private String url = "jdbc:mysql://localhost:8889/bdd_mon_site_ecomm";
+	private String url = "jdbc:mysql://localhost:3306/bdd_mon_site_ecomm";
 	private String utilisateur = "root";
-	private String motDePasse = "root";
+	private String motDePasse = "";
 	
 	public Order getOrderById(int OrderId){
 		@SuppressWarnings("rawtypes")
@@ -34,11 +34,8 @@ public class OrderDao implements Serializable{
 		}
 		return null;
 	}
-	public ArrayList<Order> getAllOrders(){
-			
+	public int getAllOrders(){
 			Connection connexion = null;
-		
-			ArrayList<Order> orderList = new ArrayList<Order>();
 			
 			try{
 				connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
@@ -50,11 +47,10 @@ public class OrderDao implements Serializable{
 		   
 		    Statement statement = connexion.createStatement();
 		   
-		    ResultSet resultat = statement.executeQuery("SELECT * FROM CLIENT ");
+		    ResultSet resultat = statement.executeQuery("SELECT count(*) as max FROM CLIENT ");
 		 
 		    while (resultat.next()){
-		    	Order o = new Order();
-		    	orderList.add(o);
+		    	return Integer.parseInt(resultat.getString("max"));
 		    }
 		
 			} catch ( SQLException e ) {
@@ -68,7 +64,7 @@ public class OrderDao implements Serializable{
 		        ignore.printStackTrace();
 		        }
 		    }
-			return orderList;
+			return 0;
 		}
 	   
 	
