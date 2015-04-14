@@ -39,7 +39,8 @@ public class Cart {
 		while(i.hasNext()){
 			CartLine c = (CartLine) i.next();
 			if (c.getProductId().equals(cL.getProductId())){
-				c.setLineNumber(c.getLineNumber() + cL.getLineNumber());
+				//c.setLineNumber(c.getLineNumber() + cL.getLineNumber());
+				c.setQuantite(c.getQuantite() + cL.getQuantite());
 				found = true;
 			}
 		}

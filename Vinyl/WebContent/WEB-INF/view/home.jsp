@@ -70,7 +70,7 @@ session.removeAttribute("productFoundList");
 			
 				        	<h5>Quantité :
 				        		 <c:set var="quantite" value="1"/>
-				        		 <input type="number" name="quantite" id="quantite" min="1" value="${quantite}"/>
+				        		 <input type="number" name="quantite" id="quantite" min="1" value="${quantite}"/ readonly>
 				        	</h5>
 				        	
 				        	<h4>Prix : <c:out value="${product.PRIX}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
