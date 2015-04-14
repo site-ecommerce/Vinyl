@@ -17,6 +17,10 @@
     <servlet-name>myAccount</servlet-name>
     <servlet-class>com.epsi.MMPS.servlets.myAccountServlet</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>updateCustom</servlet-name>
+    <servlet-class>com.epsi.MMPS.servlets.updateCustomServlet</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>logout</servlet-name>
     <servlet-class>com.epsi.MMPS.servlets.logoutServlet</servlet-class>

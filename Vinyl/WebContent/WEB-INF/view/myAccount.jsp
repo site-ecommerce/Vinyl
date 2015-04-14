@@ -7,7 +7,8 @@
 				<div>
 				<c:if test="${ customer != null }">
 				
-        		<form action="InscriptionServlet" method="post" class="map-form">
+        		<form action="updateCustom" method="post" class="map-form">
+        			   <input id="IdCustomer" type="hidden" name="IdCustomer" value="${customer.customerId}" />	
 					  <label for ="#emailId">Email :</label>
 					  <input id="emailId" type="email" name="MAIL_ADDRESS" required="true" value="${customer.mail}" placeholder="Entrez votre email"/>
 					 <br>

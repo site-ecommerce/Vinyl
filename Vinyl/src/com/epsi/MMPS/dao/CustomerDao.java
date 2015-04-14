@@ -143,12 +143,53 @@ public class CustomerDao implements Serializable{
 		return null;
 	}
 	
+public void ModificationClient(Customer c) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+		
+		Connection connexion = null; 
+		int IdClient = 0;
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch (ClassNotFoundException e){
+			throw new RuntimeException(e);
+		}
+		
+		try{
+			connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
+		}catch (SQLException e){
+			throw new RuntimeException(e);
+		}
+		
+		try {
+	   
+	    Statement statement = connexion.createStatement();
+	   
+	    String sql = "UPDATE `CLIENT` SET `NOM` = '" + c.getLastname() + "', `PRENOM` = '" + c.getFirstname() +"' ," + 
+	    		" `ADR_MAIL` = '" + c.getMail() + "', `DATE_NAISSANCE` = '" + c.getBirthDate() +"', `ADR_POSTALE` = '" + c.getAddress() + "' " + 
+	    		" WHERE NUM_CLIENT = " + c.getCustomerId();
+	    	
+	     System.out.println("MODIFS ://// " + sql);
+	    statement.executeUpdate(sql);
+	    	
+		} catch ( SQLException e ) {
+			e.printStackTrace();
+	    } finally {
+	    	if ( connexion != null )
+	        try {
+	            /* Fermeture de la connexion */
+	            connexion.close();
+	        } catch ( SQLException ignore ) {
+	        ignore.printStackTrace();
+	        }
+	    }
+	}
+	
+	
+	
 	public void getAllCustomers(){
-		SimpleDateFormat formater = null;
 		
 		Connection connexion = null;
-		
-		formater = new SimpleDateFormat("dd/MM/yy");
+	
 		customerList = new LinkedList<Customer>();
 		
 		try{
