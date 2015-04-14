@@ -1729,7 +1729,7 @@ address a:hover {
 	margin-bottom: 40px;
 	padding: 0 20px;
 	height: 40px;
-	background: #0CC;
+	background: orange;
 	border: none;
 	border-radius: 0;
 	box-shadow: none;
@@ -1745,8 +1745,8 @@ address a:hover {
 	-o-transition: all linear 0.25s;
 }
 .btn-add-cart:hover {
-	background: #333;
-	color: #FFF;
+	background: #0CC;
+	color: white;
 }
 /* Small Banners */
 .banner-small {
@@ -1875,7 +1875,7 @@ address a:hover {
 	-o-transition: all linear 0.25s;
 }
 .main-checkout .btn-checkout {
-	background: #333;
+	background: orange;
 }
 .main-checkout .btn:hover {
 	background: #0CC;
