@@ -81,6 +81,11 @@
     <servlet-name>category</servlet-name>
     <url-pattern>/category</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>updateCustom</servlet-name>
+    <url-pattern>/updateCustom</url-pattern>
+  </servlet-mapping>
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

@@ -60,7 +60,7 @@ public class updateCustomServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				request.setAttribute("errorMessage", "Modifications effecutées !! ;-)");
+				request.setAttribute("errorMessage", "Modifications sur votre compte effecutées !! ;-)");
 	    	  }
 	      
 	
