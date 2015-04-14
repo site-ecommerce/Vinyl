@@ -138,20 +138,24 @@
           </div>
 
            <div class="mini-cart-total">
-           
                    <c:if test="${total != null }">
-                   
                     <c:set var="fraisDePort" value="${fraisDePort = 1 + 0.02 * total}" scope="page"/>
                     <p style="color:black;">Frais de port : <c:out value="${fraisDePort}"/>  &euro;</p>
-                   	 <p class="total">Total 
+                    <p style="color:black;">Total : <c:out value="${total + fraisDePort}"></c:out>
+       
                    	 <span>&euro;
-                   	 	 <c:out value="${total + fraisDePort}"></c:out>
+	
+                   	 	 <p class="total">
                    	 	 <div class="checkout">
-                   	 	 		<a href="<c:url value="/myCart">
-			 				 	<c:param name="transaction" value="print"/>
-								</c:url>" class="btn">Voir le panier</a> 
-								<a href="<c:url value="/order">
-			  					</c:url>" class="btn btn-checkout">Payer</a>
+                   	 	 		<a href="
+                   	 	 			<c:url value="/myCart">
+                   	 	 				<c:param name="transaction" value="print"/>
+                   	 	 			</c:url>" class="btn">Voir le panier
+                   	 	 		</a> 
+								<a href="
+									<c:url value="/order">
+			  						</c:url>" class="btn btn-checkout">Payer
+			  					</a>
 			 			 </div>
                    	 </span>
                    	</p>
