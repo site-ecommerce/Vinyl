@@ -50,13 +50,20 @@
       <div class="main-checkout">
      		 <c:if test="${total != null }">
                     <c:set var="fraisDePort" value="${fraisDePort = 1 + 0.02 * total}" scope="page"/>
-                    <p style="color:black;">Frais de port : <c:out value="${fraisDePort}"/>  &euro;</p>
-                    <p style="color:black;">Total : <c:out value="${total + fraisDePort}"> &euro;</p></c:out>
+                    <h3>
+                    <p style="color:black;text-align:left!important">Frais de port :</p>
+                    <p style="color:black;text-align:right!important;"><c:out value="${fraisDePort}"/>  &euro;</p>
+                    <p style="color:black;text-align:left!important">Total : </p>
+                    <p style="color:black;text-align:right!important;"><c:out value="${total + fraisDePort}"/> &euro;</p>
+                    </h3>
             </c:if>
-      	<a href="<c:url value="/order">
-		 	 </c:url>" class="btn btn-checkout">Commander</a>
-		  <a href="<c:url value="/order">
-		  </c:url>" class="btn btn-checkout">Vider votre panier</a>
+      	<a href="
+      		<c:url value="/order">
+		 	</c:url>" class="btn btn-checkout">Commander
+		</a>
+		<a href="<c:url value="/init">
+		  </c:url>" class="btn btn-checkout">Vider votre panier
+		</a>
 	   </div>
 </div>
 </div>
