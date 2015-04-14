@@ -10,6 +10,14 @@
     <servlet-class>com.epsi.MMPS.servlets.loadServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>assistance</servlet-name>
+    <servlet-class>com.epsi.MMPS.servlets.assistanceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>myAccount</servlet-name>
+    <servlet-class>com.epsi.MMPS.servlets.myAccountServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>logout</servlet-name>
     <servlet-class>com.epsi.MMPS.servlets.logoutServlet</servlet-class>
   </servlet>

@@ -175,7 +175,7 @@
         			<p>${customer.firstname}</p>
         		</a>
         		<ul class="dropdown-menu">
-                	<li><a href="<c:url value="/compte" />">Mon compte</a></li>
+                	<li><a href="<c:url value="/myAccount" />">Mon compte</a></li>
                     <li><a href="<c:url value="/commandes" />">Mes commandes</a></li>
                     <li><a href="<c:url value="/fidelite" />">Mon espace fidélité</a></li>
                     <li><a href="<c:url value="/avantages" />">Mes avantages</a></li>
