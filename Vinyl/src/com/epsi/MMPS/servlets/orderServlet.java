@@ -70,7 +70,7 @@ public class orderServlet extends HttpServlet {
 						 lI.setOrderId(idOne);
 						 lI.setProductId(p.getId());
 						 lI.setQuantity(cL.getLineNumber());
-						 lI.setUPrice(lI.getQuantity() * p.getATIP());
+						 lI.setUPrice(lI.getQuantity() * p.getPRIX());
 						 lineItemList.add(lI);
 						 total += lI.getUPrice();
 					 }

@@ -25,7 +25,7 @@
       <h1><c:out value="${productSelected.label}"/></h1>
    
       <!-- Price -->
-      <p class="main-price"><strong><c:out value="${productSelected.ATIP}"/> &euro;</strong></p>
+      <p class="main-price"><strong><c:out value="${productSelected.PRIX}"/> &euro;</strong></p>
       
       <!-- Add Buttons --> 
       

@@ -78,7 +78,18 @@ public class loadServlet extends HttpServlet {
 	}
 	public List<Product> listProducts(){
 		ProductDao pD = new ProductDao();
-		pD.getAllProducts();
+		try {
+			pD.getAllProducts();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		List<Product> productList = pD.productList;
 		return productList;
 	}

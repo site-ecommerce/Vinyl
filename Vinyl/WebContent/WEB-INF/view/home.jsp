@@ -21,7 +21,7 @@
 							</c:url>" class="thumb">
 							<c:out value="${product.label}"></c:out>
 							</a></p>
-			          <p class="price">&euro; <c:out value="${product.ATIP}" /> </p>
+			          <p class="price">&euro; <c:out value="${product.PRIX}" /> </p>
 			             <c:choose>
 			          <c:when test="${ customer != null }">
 					     <div class="addTocart" >Ajouter au panier</div></a>
@@ -73,7 +73,7 @@ session.removeAttribute("productFoundList");
 				        		 <input type="number" name="quantite" id="quantite" min="1" value="${quantite}"/>
 				        	</h5>
 				        	
-				        	<h4>Prix : <c:out value="${product.ATIP}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
+				        	<h4>Prix : <c:out value="${product.PRIX}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
 				        	 <a href="<c:url value="/myCart">
 							  <c:param name="transaction" value="add"/>
 							  <c:param name="productId" value="${product.id }"/>
@@ -107,7 +107,7 @@ session.removeAttribute("productFoundList");
 			          <p><a href="<c:url value="/product">
 							  <c:param name="productID" value="${ product.id }"/>
 							</c:url>"><c:out value="${product.label}"></c:out></a></p>
-			          <p class="price">&euro; <c:out value="${product.ATIP}" /> </p>
+			          <p class="price">&euro; <c:out value="${product.PRIX}" /> </p>
 		            </div>	    				     
 				</li>
 			</c:forEach>

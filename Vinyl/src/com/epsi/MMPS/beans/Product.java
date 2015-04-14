@@ -9,7 +9,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String label;
-	private double ATIP;
+	private double PRIX;
 	private String description;
 	private int stars;
 	private String visual;
@@ -17,12 +17,12 @@ public class Product implements Serializable {
 	public Product(){
 		super();
 	}
-	public Product(String id, String label, double aTIP, String description,int s,
+	public Product(String id, String label, double pRIX, String description,int s,
 			String visual, String categoryId) {
 		super();
 		this.id = id;
 		this.label = label;
-		ATIP = aTIP;
+		PRIX = pRIX;
 		this.description = description;
 		this.stars = s;
 		this.visual = visual;
@@ -47,11 +47,11 @@ public class Product implements Serializable {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	public double getATIP() {
-		return ATIP;
+	public double getPRIX() {
+		return PRIX;
 	}
-	public void setATIP(double aTIP) {
-		ATIP = aTIP;
+	public void setPRIX(double pRIX) {
+		PRIX = pRIX;
 	}
 	public String getDescription() {
 		return description;
@@ -73,7 +73,7 @@ public class Product implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", label=" + label + ", ATIP=" + ATIP
+		return "Product [id=" + id + ", label=" + label + ", PRIX=" + PRIX
 				+ ", description=" + description + ", visual=" + visual + "]";
 	}
 	

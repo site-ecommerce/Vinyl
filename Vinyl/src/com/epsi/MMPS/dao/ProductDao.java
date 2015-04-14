@@ -2,6 +2,11 @@ package com.epsi.MMPS.dao;
 
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,44 +14,83 @@ import java.util.List;
 import com.epsi.MMPS.beans.Product;
 
 public class ProductDao implements Serializable{
-	private static String workingDir = System.getProperty("user.dir")+"/";   
-	public List<Product> productList = null;
-	
-	public Product getProductById(String id){
-		Iterator i = productList.iterator();
-		while(i.hasNext()){
-			Product p = (Product) i.next();
-			if (p.getId().equals(id)){
-				return p;
-			}
-		}
-		return null;
-	}
-	public void getAllProducts(){
-		productList = new LinkedList<Product>();
-		Product p = new Product("1", "Vinyl A", 19.99, "Album classique",3, "C://", "1");
-		Product p1 = new Product("2", "Vinyl B", 16.99, "Album rock",5, "C://", "2");
-		Product p2 = new Product("3", "Vinyl C", 46.99, "Album jazz 1",2, "C://", "3");
-		Product p3 = new Product("4", "Vinyl D", 86.99, "Album jazz 2",4, "C://", "3");
-		Product p4 = new Product("5", "Vinyl E", 26.99, "Album pop",2, "C://", "4");
-		
-		productList.add(p);
-		productList.add(p1);
-		productList.add(p2);
-		productList.add(p3);
-		productList.add(p4);
-	}
-	public void addProduct(Product p){
-		productList.add(p);
-	}
-	public void deleteProduct(String id){
-		productList.remove(getProductById(id));
-	}
-	public List<Product> getProductList() {
-		return productList;
-	}
-	public void setProductList(List<Product> productList) {
-		this.productList = productList;
-	}
-	
+private static String workingDir = System.getProperty("user.dir")+"/";   
+public List<Product> productList = null;
+public Product getProductById(String id){
+Iterator i = productList.iterator();
+while(i.hasNext()){
+Product p = (Product) i.next();
+if (p.getId().equals(id)){
+return p;
+}
+}
+return null;
+}
+public void getAllProducts() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
+productList = new LinkedList<Product>();
+String url = "jdbc:mysql://localhost:3306/bdd_mon_site_ecomm";
+String utilisateur = "root";
+String motDePasse = "";
+Connection connexion = null; 
+try{
+Class.forName("com.mysql.jdbc.Driver");
+}catch (ClassNotFoundException e){
+throw new RuntimeException(e);
+}
+try{
+connexion = DriverManager.getConnection(url, utilisateur, motDePasse );
+}catch (SQLException e){
+    throw new RuntimeException(e);
+}
+try {
+   
+    Statement statement = connexion.createStatement();
+   
+    ResultSet resultat = statement.executeQuery("SELECT * FROM ARTICLES" );
+ 
+    String id ="";
+    String label ="";
+    Double PRIX = 0.0;
+    String description ="";
+    int stars = 0;
+    String visual = "";
+    String categoryId ="1";
+   
+  while ( resultat.next() ) {
+  id  = resultat.getString("ID_ARTICLE");
+  label = resultat.getString("LIBELLE"); 
+  PRIX = Double.parseDouble(resultat.getString("PVTTC"));
+  description = resultat.getString("DESCRIPTION");
+  stars = Integer.parseInt(resultat.getString("ETOILES"));
+  visual = resultat.getString("VISUEL");
+ 
+Product p1 = new Product(id,label,PRIX,description,stars,visual,categoryId);
+          productList.add(p1);
+}
+
+} catch ( SQLException e ) {
+    e.printStackTrace();
+   
+} finally {
+    if ( connexion != null )
+        try {
+            /* Fermeture de la connexion */
+            connexion.close();
+        } catch ( SQLException ignore ) {
+        ignore.printStackTrace();
+        }
+}
+}
+public void addProduct(Product p){
+productList.add(p);
+}
+public void deleteProduct(String id){
+productList.remove(getProductById(id));
+}
+public List<Product> getProductList() {
+return productList;
+}
+public void setProductList(List<Product> productList) {
+this.productList = productList;
+}
 }

@@ -26,7 +26,7 @@
 							<c:out value="${product.label}"></c:out>
 							</a>
 						</p>
-			          <p class="price">&euro; <c:out value="${product.ATIP}" /> </p>
+			          <p class="price">&euro; <c:out value="${product.PRIX}" /> </p>
 			          <c:choose>
 			          <c:when test="${ customer != null }">
 					      <a class="buyLink" href="<c:url value="/myCart">

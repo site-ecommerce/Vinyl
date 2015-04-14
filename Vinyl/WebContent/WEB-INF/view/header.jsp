@@ -127,10 +127,10 @@
 						 <div class="mini-cart-detail">
 			                  <h5><a href="#"><c:out value="${product.label}"/></a></h5>
 			                  <em><c:out value="${cartLine.getQuantite()}"/> exemplaire(s)</em>
-			                  <p>&euro; <c:out value="${product.ATIP * cartLine.getQuantite()}"/> </p>
+			                  <p>&euro; <c:out value="${product.PRIX * cartLine.getQuantite()}"/> </p>
 		                 </div>			    				     
 					    </li>
-					   <c:set var="total" value="${total = total + product.ATIP * cartLine.getQuantite()}" scope="page" />
+					   <c:set var="total" value="${total = total + product.PRIX * cartLine.getQuantite()}" scope="page" />
 					</c:if>
 				</c:forEach>
 			</c:forEach>
