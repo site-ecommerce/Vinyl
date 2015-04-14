@@ -59,14 +59,15 @@ public class orderServlet extends HttpServlet {
 			 List<LineItem> lineItemList = new LinkedList<LineItem>();
 			 Customer c = (Customer)session.getAttribute("customer");
 			 o.setCustomerId(c.getCustomerId());
-			 o.setOrderId(new OrderDao().getAllOrders().size());
-			 Iterator i = currentCart.getCartLineList().iterator();
-			 Iterator i1 = pL.iterator();
-			 Iterator i2 = lineItemList.iterator();
-			 while (i.hasNext()){ // Parcours des lignes du panier
-				 CartLine cL = (CartLine) i.next();
-				 while (i1.hasNext()){ // Get du prix du produit en fonction de l'id
-					 Product p = (Product) i1.next();
+			 o.setOrderId(new OrderDao().getAllOrders().size() + 1 );
+			 //Iterator i = currentCart.getCartLineList().iterator();
+			 //Iterator i1 = pL.iterator();
+			 //Iterator i2 = lineItemList.iterator();
+			 //while (i.hasNext()){ // Parcours des lignes du panier
+			 for(int y=0; y < currentCart.getCartLineList().size();y++){
+				 CartLine cL = currentCart.getCartLineList().get(y);
+				 for(int i=0; y < pL.size();i++){ // Get du prix du produit en fonction de l'id
+					 Product p = pL.get(i);
 					 if (p.getId().equals(cL.getProductId())){
 						 LineItem lI = new LineItem(); //cr�ation d'un object Line item : prix, id produit, id Commande
 						 lI.setOrderId(o.getOrderId());
