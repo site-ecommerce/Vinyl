@@ -19,33 +19,39 @@
 		      <c:forEach items="${ productList }" var="product" varStatus="status">
 		       <c:if test="${ categorySelected.categoryId == product.categoryId}">
 				<li class="span3"> 
-					<div class="thumbnail"><a href="<c:url value="/product">
+				    <div class="thumbnail">		
+				    
+				    	<a href="<c:url value="/product">
 							  <c:param name="productID" value="${ product.id }"/>
 							</c:url>" class="thumb">
-							<img src="http://placehold.it/350x150">
+							<img src="./img/logo.png" alt="${product.label}">
 							</a>
-			          <p><a href="<c:url value="/product">
-							  <c:param name="productID" value="${ product.id }"/>
-							</c:url>" class="thumb">
-							<c:out value="${product.label}"></c:out>
-							</a>
-						</p>
-			          <p class="price">&euro; <c:out value="${product.PRIX}" /> </p>
-			          <c:choose>
-			          <c:when test="${ customer != null }">
-					      <a class="buyLink" href="<c:url value="/myCart">
+				      <div class="caption">
+				        <h3><c:out value="${product.label}"></c:out></h3>
+				        <p><c:out value="${product.label}"></c:out></p>
+				        <p>
+				        	     	
+				        	<div id="nbEtoiles">
+				        		Note du produit :
+				        		<c:forEach var="etoile" begin="1" end="${product.stars}">
+				        			<h6 class="glyphicon glyphicon-star"></h6>
+				        		</c:forEach>
+							</div>			
+			
+				        	<h5>Quantité :
+				        		 <c:set var="quantite" value="1"/>
+				        		 <input type="number" name="quantite" id="quantite" min="1" value="${quantite}"/ readonly>
+				        	</h5>
+				        	
+				        	<h4>Prix : <c:out value="${product.PRIX}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
+				        	 <a href="<c:url value="/myCart">
 							  <c:param name="transaction" value="add"/>
-							  <c:param name="productId" value="${ product.id }"/>
-							</c:url>">
-							<div class="addTocart" >Ajouter au panier</div>
-							</a>
-				     </c:when>
-				     <c:otherwise>
-					     <a  class="buyLink" href="<c:url value="/login">
-							</c:url>">Ajouter au panier</a>
-				     </c:otherwise>
-				     </c:choose>
-		            </div>	    				     
+							  <c:param name="productId" value="${product.id }"/>
+							  <c:param name="quantite" value="${quantite}"/>
+							</c:url>" class="btn btn-primary" role="submit">Ajouter au panier</a>
+				       </p>
+				      </div>
+				    </div>	     
 				</li>
 				</c:if>
 	  </c:forEach>
