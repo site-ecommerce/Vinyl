@@ -89,7 +89,7 @@ public class orderServlet extends HttpServlet {
 			 o.setPrice(total + ( 1 + 0.02 * total));
 			 new OrderDao().ajouterCommande(o);
 			 new LineItemDao().ajouterLigneCommande(lineItemList);
-			 //currentCart.dropCart(currentCart);
+			 currentCart.dropCart(currentCart);
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/view/myOrder.jsp").forward(request, response);
 		 }
 	}

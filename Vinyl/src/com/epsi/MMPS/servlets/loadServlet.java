@@ -42,7 +42,16 @@ public class loadServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession(true);
+		boolean viderLePanier = Boolean.parseBoolean(request.getParameter("viderPanier"));
+		
+		if (viderLePanier){
+			 Cart currentCart = (Cart) session.getAttribute("cart");
+			 currentCart.dropCart(currentCart);  
+		}
+		
+		
 		if (session.getAttribute("productList") == null){
 			 session.setAttribute("productList", listProducts());
 		}

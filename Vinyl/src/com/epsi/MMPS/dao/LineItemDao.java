@@ -52,13 +52,13 @@ public class LineItemDao implements Serializable{
 			throw new RuntimeException(e);
 		}
 		
-		for(int i = 1; i < lineItemList2.size();i++){
+		for(int i = 0; i < lineItemList2.size();i++){
 			try {
 		   
 		    Statement statement2 = connexion.createStatement();
-		   
+		    
 		    String sql = "INSERT INTO `LIGNES_COMMANDE`(`ID_COMMANDE`,`NUM_LIGNE`, `ID_ARTICLE`, `QTE`, `PVU`) "
-		    		+ "VALUES (" + lineItemList2.get(i).getOrderId()  + "," + i + ",'" + lineItemList2.get(i).getProductId() + "'," + lineItemList2.get(i).getQuantity() + ",'" + lineItemList2.get(i).getUPrice() + "')";
+		    		+ "VALUES (" + lineItemList2.get(i).getOrderId()  + "," + (i + 1) + ",'" + lineItemList2.get(i).getProductId() + "'," + lineItemList2.get(i).getQuantity() + ",'" + lineItemList2.get(i).getUPrice() + "')";
 		      
 		    statement2.executeUpdate(sql);
 		    	

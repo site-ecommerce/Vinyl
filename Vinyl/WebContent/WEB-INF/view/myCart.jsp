@@ -63,8 +63,10 @@
 		 	</c:url>" class="btn btn-checkout">Commander
 		</a>
 		<a href="<c:url value="/init">
-		  </c:url>" class="btn btn-checkout">Vider votre panier
+		  <c:param name="viderPanier" value="True"/>
+		  </c:url>" class="btn btn-primary">Vider votre panier
 		</a>
+				
 	   </div>
 </div>
 </div>
