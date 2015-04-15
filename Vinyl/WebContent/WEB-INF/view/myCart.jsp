@@ -6,7 +6,6 @@
 <div class="container">
   <div class="row">
     <div class="span12">
-
 <c:forEach items="${ customerList }" var="customer" varStatus="status">
 	  <c:if test="${ cart.customerID == customer.customerId }">
 	   	<c:out value="${ customer.firstname }" />

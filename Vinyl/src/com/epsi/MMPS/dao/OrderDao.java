@@ -89,7 +89,7 @@ public class OrderDao implements Serializable{
 		    Statement statement2 = connexion.createStatement();
 		   
 		    String sql = "INSERT INTO `COMMANDE`(`ID_COMMANDE`,`NUM_CLIENT`, `DATE_COMMANDE`, `TOTAL`) "
-		    		+ "VALUES (" + o.getOrderId()  + "," + o.getCustomerId() + ",'" + o.getOrderDate() + "'," + o.getPrice() + ")";
+		    		+ "VALUES (" + o.getOrderId() + 1  + "," + o.getCustomerId() + ",'" + o.getOrderDate() + "'," + o.getPrice() + ")";
 		      
 		    statement2.executeUpdate(sql);
 		    	

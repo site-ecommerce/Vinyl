@@ -81,15 +81,13 @@ public class orderServlet extends HttpServlet {
 				 }
 			 }				 
 		 }
-			 
-			 
-			 
-			
+
 			 o.setOrderDate(dateFormat.format(date));
 			 o.setPrice(total + ( 1 + 0.02 * total));
 			 new OrderDao().ajouterCommande(o);
 			 new LineItemDao().ajouterLigneCommande(lineItemList);
 			 currentCart.dropCart(currentCart);
+			 session.setAttribute("infos", "Votre commande a été enregistrée !");
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/view/myOrder.jsp").forward(request, response);
 		 }
 	}

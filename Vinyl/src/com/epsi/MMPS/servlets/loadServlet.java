@@ -51,7 +51,6 @@ public class loadServlet extends HttpServlet {
 			 currentCart.dropCart(currentCart);  
 		}
 		
-		
 		if (session.getAttribute("productList") == null){
 			 session.setAttribute("productList", listProducts());
 		}

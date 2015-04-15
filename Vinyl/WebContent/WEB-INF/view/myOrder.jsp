@@ -7,11 +7,8 @@
 <div class="container">
   <div class="row">
     <div class="span12">
-    <c:if test="${ order != null }">
-	Commande :
-	<c:out value="${order.orderDate}"/>
-	Total : 
-	<c:out value="${order.price}"/>
+    <c:if test="${ infos != null }">
+	<h2><c:out value="${infos}"/></h2>
 </c:if>
 </div>
 </div>
