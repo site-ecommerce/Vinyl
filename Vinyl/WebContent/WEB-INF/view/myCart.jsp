@@ -34,7 +34,8 @@
 					<td class="p-name"><h5><a href="#"><c:out value="${product.label}"/></a></h5></td>
 					<td> <c:out value="${cartLine.getQuantite()}"/></td>
 					<td><c:out value="${product.PRIX}"/></td>
-					<td><strong><c:out value="${total = total + (product.PRIX * cartLine.getQuantite())}"/>&euro;</strong></td>
+					<c:set var="total" value="${total = total + product.PRIX * cartLine.getQuantite()}" />
+					<td><strong><c:out value="${product.PRIX * cartLine.getQuantite()}"/>&euro;</strong></td>
 				  </tr>
 				</c:if>
 			</c:forEach>
