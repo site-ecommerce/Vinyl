@@ -52,20 +52,21 @@ public class LineItemDao implements Serializable{
 			throw new RuntimeException(e);
 		}
 		
-		for(int i = 0; i < lineItemList2.size();i++){
+		
 			try {
-		   
-		    Statement statement2 = connexion.createStatement();
+				for(int i = 0; i < lineItemList2.size();i++){
+				Statement statement2 = connexion.createStatement();
 		    
-		    String sql = "INSERT INTO `LIGNES_COMMANDE`(`ID_COMMANDE`,`NUM_LIGNE`, `ID_ARTICLE`, `QTE`, `PVU`) "
-		    		+ "VALUES (" + lineItemList2.get(i).getOrderId()  + "," + (i + 1) + ",'" + lineItemList2.get(i).getProductId() + "'," + lineItemList2.get(i).getQuantity() + ",'" + lineItemList2.get(i).getUPrice() + "')";
+					String sql = "INSERT INTO `LIGNES_COMMANDE`(`ID_COMMANDE`,`NUM_LIGNE`, `ID_ARTICLE`, `QTE`, `PVU`) "
+						+ "VALUES (" + lineItemList2.get(i).getOrderId()  + "," + (i + 1) + ",'" + lineItemList2.get(i).getProductId() + "'," + lineItemList2.get(i).getQuantity() + ",'" + lineItemList2.get(i).getUPrice() + "')";
 		      
-		    statement2.executeUpdate(sql);
+					statement2.executeUpdate(sql);
+				}
 		    	
 			} catch ( SQLException e ) {
 				e.printStackTrace();
 		    } finally {
-		    	if ( connexion != null )
+		    	if ( connexion != null )  
 		        try {
 		            /* Fermeture de la connexion */
 		            connexion.close();
@@ -74,6 +75,6 @@ public class LineItemDao implements Serializable{
 		        }
 		    }
 		}
-	}
+	
 	
 }

@@ -59,9 +59,9 @@ public class orderServlet extends HttpServlet {
 			 List<LineItem> lineItemList = new LinkedList<LineItem>();
 			 Customer c = (Customer)session.getAttribute("customer");
 			 o.setCustomerId(c.getCustomerId());
-			 o.setOrderId(new OrderDao().getAllOrders());
+			 o.setOrderId(new OrderDao().getAllOrders() + 1);
 			 System.out.println("nombre de commandes" + o.getOrderId());
-			 System.out.println("nombre de produits" + lineItemList.size());
+			 System.out.println("nombre de produits" + currentCart.getCartLineList().size());
 			 //Iterator i = currentCart.getCartLineList().iterator();
 			 //Iterator i1 = pL.iterator();
 			 //Iterator i2 = lineItemList.iterator();
