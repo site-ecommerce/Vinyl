@@ -60,6 +60,7 @@ public class LineItemDao implements Serializable{
 					String sql = "INSERT INTO `LIGNES_COMMANDE`(`ID_COMMANDE`,`NUM_LIGNE`, `ID_ARTICLE`, `QTE`, `PVU`) "
 						+ "VALUES (" + lineItemList2.get(i).getOrderId()  + "," + (i + 1) + ",'" + lineItemList2.get(i).getProductId() + "'," + lineItemList2.get(i).getQuantity() + ",'" + lineItemList2.get(i).getUPrice() + "')";
 		      
+					System.out.println(sql);
 					statement2.executeUpdate(sql);
 				}
 		    	
