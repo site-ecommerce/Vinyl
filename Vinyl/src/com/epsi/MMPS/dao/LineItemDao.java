@@ -54,8 +54,9 @@ public class LineItemDao implements Serializable{
 		
 		
 			try {
-				for(int i = 0; i < lineItemList2.size();i++){
 				Statement statement2 = connexion.createStatement();
+				for(int i = 0; i < lineItemList2.size();i++){
+				
 		    
 					String sql = "INSERT INTO `LIGNES_COMMANDE`(`ID_COMMANDE`,`NUM_LIGNE`, `ID_ARTICLE`, `QTE`, `PVU`) "
 						+ "VALUES (" + lineItemList2.get(i).getOrderId()  + "," + (i + 1) + ",'" + lineItemList2.get(i).getProductId() + "'," + lineItemList2.get(i).getQuantity() + ",'" + lineItemList2.get(i).getUPrice() + "')";
