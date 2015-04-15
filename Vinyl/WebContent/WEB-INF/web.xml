@@ -17,7 +17,11 @@
     <servlet-name>myAccount</servlet-name>
     <servlet-class>com.epsi.MMPS.servlets.myAccountServlet</servlet-class>
   </servlet>
-   <servlet>
+  <servlet>
+    <servlet-name>commandes</servlet-name>
+    <servlet-class>com.epsi.MMPS.servlets.customerOrder</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>updateCustom</servlet-name>
     <servlet-class>com.epsi.MMPS.servlets.updateCustomServlet</servlet-class>
   </servlet>
@@ -81,13 +85,17 @@
     <servlet-name>category</servlet-name>
     <url-pattern>/category</url-pattern>
   </servlet-mapping>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>assistance</servlet-name>
     <url-pattern>/assistance</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>updateCustom</servlet-name>
     <url-pattern>/updateCustom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>commandes</servlet-name>
+    <url-pattern>/commandes</url-pattern>
   </servlet-mapping>
   <jsp-config>
     <jsp-property-group>

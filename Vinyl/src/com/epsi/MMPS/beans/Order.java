@@ -43,4 +43,7 @@ public class Order implements Serializable{
 		this.price = price;
 	}
 	
+	public String toString(){
+		return "Commande n° " + this.OrderId + " - Le " + this.OrderDate + " (" + this.price + ")";
+	}
 }

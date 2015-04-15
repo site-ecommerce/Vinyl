@@ -29,7 +29,6 @@ public class homeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-        session.setAttribute("product", "test");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);
 	}
 
