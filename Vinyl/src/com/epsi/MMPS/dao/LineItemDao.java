@@ -65,7 +65,7 @@ public class LineItemDao implements Serializable{
 		    	
 			} catch ( SQLException e ) {
 				e.printStackTrace();
-		    } finally {
+		    } finally {  
 		    	if ( connexion != null )  
 		        try {
 		            /* Fermeture de la connexion */
