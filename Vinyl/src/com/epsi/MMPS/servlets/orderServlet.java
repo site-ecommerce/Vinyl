@@ -87,7 +87,7 @@ public class orderServlet extends HttpServlet {
 			 new OrderDao().ajouterCommande(o);
 			 new LineItemDao().ajouterLigneCommande(lineItemList);
 			 currentCart.dropCart(currentCart);
-			 session.setAttribute("infos", "Votre commande a Ã©tÃ© enregistrÃ©e !");
+			 session.setAttribute("infos", "Votre commande a été enregistrée !");
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/view/myOrder.jsp").forward(request, response);
 		 }
 	}

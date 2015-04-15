@@ -1,16 +1,24 @@
-<%@ include file="header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@include file="header.jsp" %>
 <% //Affichage des produits %>
+
+<!DOCTYPE html>
+	<html>
+		<head>
+		</head>
+		<body>
+
 
 <c:if test="${ AllOrdersCustomer != null }">
 
-<h1> VOS COMMANDES : </h1>
+<h1><span class="glyphicon glyphicon-inbox"> </span> Vos <span>commandes</span></h1>
 		
 	<ul class="thumbnails">
 		<c:forEach items="${ AllOrdersCustomer }" var="order">
 			<h4><c:out value="${order}"/> &euro;</h4>
 			
 			<h4>Frais de PORT : <c:out value="${1 + 0.02 * order.price}"/> &euro;</h4>
-			</hr>
+			<br>
 	  	
 	  		<c:if test="${ AllOrdersCustomer != null && CommandProducts != null }">
 	  			<c:forEach items="${ CommandProducts }" var="CmdProd">
@@ -31,9 +39,7 @@
 															</a>
 												      <div class="caption">
 												        <h3><c:out value="${Prod.label}"></c:out></h3>
-												        <p><c:out value="${Prod.label}"></c:out></p>
-												        <p>
-												        	     	
+												        <p><c:out value="${Prod.label}"></c:out></p>  	
 												        	<div id="nbEtoiles">
 												        		Note du produit :
 												        		<c:forEach var="etoile" begin="1" end="${Prod.stars}">
@@ -42,7 +48,8 @@
 															</div>			
 											
 												        	<h4>Prix : <c:out value="${Prod.PRIX}"></c:out> <i class="glyphicon glyphicon-euro"></i> </h4>
-												       </p>
+												      <br>
+												      <br>
 												      </div>
 												    </div>	     
 												</li>
@@ -64,9 +71,6 @@
 	<h3> Vous n'avez toujours pas fait de commande chez nous :'(</h3>
 </c:if>
 
-	
-
-
-
-
 <%@include file="footer.jsp" %>
+</body>
+</html>

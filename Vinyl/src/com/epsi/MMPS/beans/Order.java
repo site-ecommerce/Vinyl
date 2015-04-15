@@ -44,6 +44,6 @@ public class Order implements Serializable{
 	}
 	
 	public String toString(){
-		return "Commande nÂ° " + this.OrderId + " - Le " + this.OrderDate + " (" + this.price + ")";
+		return "Commande n° " + this.OrderId + " - Le " + this.OrderDate + " (" + this.price + ")";
 	}
 }

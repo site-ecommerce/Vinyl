@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %>
 <% //Affichage des produits %>
 
-<h1> MON COMPTE : </h1>
+<h1><span class="glyphicon glyphicon-briefcase"> </span> Mon <span>compte</span></h1>
 		<fieldset>
 			<legend>Vos informations :</legend>
 				<div>

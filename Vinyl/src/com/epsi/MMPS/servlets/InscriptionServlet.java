@@ -64,7 +64,7 @@ public class InscriptionServlet extends HttpServlet {
 				}
 				request.setAttribute("errorMessage", "Bienvenue " + nom + " " + prenom + " ;-)");
 	    	  }else{
-	    		  request.setAttribute("errorMessage", "Compte dÃ©ja existant");
+	    		  request.setAttribute("errorMessage", "Compte déjà existant");
 	    	  }
 	      
 	
