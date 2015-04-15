@@ -1,9 +1,17 @@
-<%@ include file="header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@include file="header.jsp" %>
+<!DOCTYPE html>
+	<html>
+		<head>
+		</head>
+		<body>
 <% //Affichage des produits %>
 
 <c:if test="${ AllOrdersCustomer != null }">
 
-<h1> VOS COMMANDES : </h1>
+<h1><span class="glyphicon glyphicon-inbox"> </span> Vos <span>commandes</span></h1>
 		
 	<ul class="thumbnails">
 		<c:forEach items="${ AllOrdersCustomer }" var="order">
@@ -64,9 +72,6 @@
 	<h3> Vous n'avez toujours pas fait de commande chez nous :'(</h3>
 </c:if>
 
-	
-
-
-
-
 <%@include file="footer.jsp" %>
+</body>
+</html>

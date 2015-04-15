@@ -1,8 +1,12 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
 <%@include file="header.jsp" %>
+<!DOCTYPE html>
+	<html>
+		<head>
+		</head>
+		<body>
 <div class="products-list">
 <div class="container">
   <div class="row">
